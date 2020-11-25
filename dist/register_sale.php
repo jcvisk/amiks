@@ -144,13 +144,13 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                 </div>
                 <div class="container">
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-5">
                             <form method="POST" action="../src/core/register_sale.php">
                                 <div class="form-row">
                                     <input class="form-control sr-only"
                                         value="<?= $_SESSION['usuario_distribuidor']['id'] ?>" name="distribuidor"
                                         id="distribuidor" type="text" required />
-                                    <div class="col-md">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="small mb-1" for="cliente">Cliente</label>
                                             <select class="custom-select" name="cliente" id="cliente" required>
@@ -173,7 +173,7 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="small mb-1" for="presentacion">Presentación</label>
                                             <select class="custom-select" name="presentacion" id="presentacion"
@@ -193,43 +193,43 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="small mb-1" for="pagadas">Pagadas</label>
                                             <input class="form-control" name="pagadas" id="pagadas" type="number"
                                                 min="1" required />
                                         </div>
                                     </div>
-                                    <div class="col-md">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="small mb-1" for="vendidas">Vendidas</label>
                                             <input class="form-control" name="vendidas" id="vendidas" type="number"
                                                 min="1" required />
                                         </div>
                                     </div>
-                                    <div class="col-md">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="small mb-1" for="cambios">Cambios</label>
                                             <input class="form-control" name="cambios" id="cambios" type="number"
                                                 min="1" required />
                                         </div>
                                     </div>
-                                    <div class="col-md">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="small mb-1" for="consignas">Consignas</label>
                                             <input class="form-control" name="consignas" id="consignas" type="number"
                                                 min="1" required />
                                         </div>
                                     </div>
-                                    <div class="col-md justify-content-be">
+                                </div>
+                                <div class="form-row justify-content-between">
+                                    <div class="col-md-4 justify-content-be">
                                         <div class="form-group">
                                             <label class="small mb-1" for="consigna_anterior">Consigna Anterior</label>
                                             <input class="form-control" name="consigna_anterior" id="consigna_anterior"
                                                 type="number" min="1" required />
                                         </div>
                                     </div>
-                                </div>
-                                <div class="form-row justify-content-end">
                                     <div class="form-group mt-4 mb-5 text-right">
                                         <button class="btn btn-primary" type="submit">Guardar</button>
                                     </div>
@@ -237,8 +237,41 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
 
                             </form>
                         </div>
+                        <div class="col-7">
+                        <div class="card mb-4" style="height: 250px; overflow: auto;">
+                                <div class="card-header">
+                                    <i class="fas fa-table mr-1"></i>
+                                    Ventas y Consiganas
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Cliente</th>
+                                                    <?php
+                                                    $tabla = 'productos';
+                                                    $distribuidores = obtenerRegistros( $conexion, $tabla );
+                                                    if (!empty($distribuidores)) :
+                                                    while ( $distribuidor = mysqli_fetch_assoc( $distribuidores ) ) : ?>
+                                                    <th>$ <?= $distribuidor['descripcion']; ?></th>
+
+                                                    <?php
+                                                    endwhile;
+                                                    endif;
+                                                    ?>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-12">
-                            <div class="card mb-4" style="height: 500px; overflow: auto;">
+                            <div class="card mb-4">
                                 <div class="card-header">
                                     <i class="fas fa-table mr-1"></i>
                                     Ventas y Consiganas
