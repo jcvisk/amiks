@@ -238,7 +238,7 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                             </form>
                         </div>
                         <div class="col-12">
-                            <div class="card mb-4">
+                            <div class="card mb-4" style="height: 500px; overflow: auto;">
                                 <div class="card-header">
                                     <i class="fas fa-table mr-1"></i>
                                     Ventas y Consiganas
@@ -255,6 +255,7 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                                                     <th>Cambios</th>
                                                     <th>Consignas</th>
                                                     <th>Consigna Anterior</th>
+                                                    <th>Total Consigna</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -268,8 +269,9 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                                                             <td><?= $cliente['pagada']; ?></td>
                                                             <td><?= $cliente['vendida']; ?></td>
                                                             <td><?= $cliente['cambios']; ?></td>
-                                                            <td><?= $cliente['consigna']; ?></td>
-                                                            <td><?= $cliente['consignaanterior']; ?></td>
+                                                            <td><?= (INT)$cliente['consigna']; ?></td>
+                                                            <td><?= (INT)$cliente['consignaanterior']; ?></td>
+                                                            <td><?php $re = ((INT)$cliente['consigna'] + (INT)$cliente['consignaanterior']); echo ($re) ; ?></td>
                                                         </tr>
                                                         <?php
                                                 endwhile;
