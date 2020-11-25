@@ -19,4 +19,6 @@ echo 'saliendo de mysqli_query';
 
 var_dump($save_in_db);
 
+header('Location: ../../dist/login.php');
+
 ?>
