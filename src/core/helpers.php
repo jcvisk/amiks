@@ -22,6 +22,7 @@ function obtenerRegistros( $conexion, $tabla ) {
     return $resultado;
 }
 //mostrar la los registros com un where
+
 function obtenerRegistro( $conexion, $tabla, $id, $idforeaneo ) {
     $sql = "SELECT * FROM $tabla WHERE $id = $idforeaneo;";
     $distribuidores = mysqli_query( $conexion, $sql );
@@ -34,8 +35,15 @@ function obtenerRegistro( $conexion, $tabla, $id, $idforeaneo ) {
     return $resultado;
 }
 //mostrar la los registros pertenecientes a un distribuidor
+
 function listarClientesVentas( $conexion ) {
-    $sql = "SELECT * FROM clientes a INNER JOIN ventas b ON a.id = b.idcliente;";
+    $sql = "SELECT ventas.*,
+    clientes.nombreempresa,
+    productos.descripcion
+    FROM ventas INNER JOIN clientes
+    ON ventas.idcliente = clientes.id
+    INNER JOIN productos
+    ON ventas.idproducto = productos.id;";
     $clientes = mysqli_query( $conexion, $sql );
 
     $resultado = array();

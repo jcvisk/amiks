@@ -264,7 +264,7 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                                                 while ( $cliente = mysqli_fetch_assoc( $clientesVentas ) ) : ?>
                                                         <tr>
                                                             <td><?= $cliente['nombreempresa']; ?></td>
-                                                            <td><?= $cliente['pagada']; ?></td>
+                                                            <td><?= $cliente['descripcion']; ?></td>
                                                             <td><?= $cliente['pagada']; ?></td>
                                                             <td><?= $cliente['vendida']; ?></td>
                                                             <td><?= $cliente['cambios']; ?></td>
