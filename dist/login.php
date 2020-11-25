@@ -51,7 +51,7 @@ require_once '../src/core/helpers.php';
                                     </form>
                                 </div>
                                 <div class="card-footer text-center">
-                                    <div class="small">Texto de jemplo</div>
+                                    <!-- <div class="small">Texto de jemplo</div> -->
                                 </div>
                             </div>
                         </div>
