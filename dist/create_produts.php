@@ -153,6 +153,12 @@ if (!isset($_SESSION['usuario_admin'])) {
                                             <input class="form-control" name="presentacion" id="presentacion" type="text" required/>
                                         </div>
                                     </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="small mb-1" for="precio">Precio</label>
+                                            <input class="form-control" name="precio" id="precio" type="number" min="1" required/>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group mt-4 mb-5 text-right">
                                     <button class="btn btn-primary" type="submit">Guardar</button>
