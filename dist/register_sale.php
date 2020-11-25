@@ -238,17 +238,16 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                             </form>
                         </div>
                         <div class="col-7">
-                        <div class="card mb-4" style="height: 250px; overflow: auto;">
+                            <div class="card mb-4" style="height: 250px; overflow: auto;">
                                 <div class="card-header">
                                     <i class="fas fa-table mr-1"></i>
-                                    Ventas y Consiganas
+                                    Totales
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
                                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                             <thead>
                                                 <tr>
-                                                    <th>Cliente</th>
                                                     <?php
                                                     $tabla = 'productos';
                                                     $distribuidores = obtenerRegistros( $conexion, $tabla );
@@ -263,7 +262,13 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                                                 </tr>
                                             </thead>
                                             <tbody>
-
+                                                    <tr>
+                                                        <th>$ <?= listarProductosByDescripcion( $conexion, '1L' ); ?></th>
+                                                        <th>$ <?= listarProductosByDescripcion( $conexion, '0.75L' ); ?></th>
+                                                        <th>$ <?= listarProductosByDescripcion( $conexion, 'Galon' ); ?></th>
+                                                        <th>$ <?= listarProductosByDescripcion( $conexion, '0.50' ); ?></th>
+                                                    </tr>
+                                                    
                                             </tbody>
                                         </table>
                                     </div>
@@ -278,7 +283,7 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
-                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <table class="table table-bordered" id="dataTable2" width="100%" cellspacing="0">
                                             <thead>
                                                 <tr>
                                                     <th>Cliente</th>
@@ -296,17 +301,18 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                                                 $clientesVentas = listarClientesVentas( $conexion );
                                                 if (!empty($clientesVentas)) :
                                                 while ( $cliente = mysqli_fetch_assoc( $clientesVentas ) ) : ?>
-                                                        <tr>
-                                                            <td><?= $cliente['nombreempresa']; ?></td>
-                                                            <td><?= $cliente['descripcion']; ?></td>
-                                                            <td><?= $cliente['pagada']; ?></td>
-                                                            <td><?= $cliente['vendida']; ?></td>
-                                                            <td><?= $cliente['cambios']; ?></td>
-                                                            <td><?= (INT)$cliente['consigna']; ?></td>
-                                                            <td><?= (INT)$cliente['consignaanterior']; ?></td>
-                                                            <td><?php $re = ((INT)$cliente['consigna'] + (INT)$cliente['consignaanterior']); echo ($re) ; ?></td>
-                                                        </tr>
-                                                        <?php
+                                                <tr>
+                                                    <td><?= $cliente['nombreempresa']; ?></td>
+                                                    <td><?= $cliente['descripcion']; ?></td>
+                                                    <td><?= $cliente['pagada']; ?></td>
+                                                    <td><?= $cliente['vendida']; ?></td>
+                                                    <td><?= $cliente['cambios']; ?></td>
+                                                    <td><?= (INT)$cliente['consigna']; ?></td>
+                                                    <td><?= (INT)$cliente['consignaanterior']; ?></td>
+                                                    <td><?php $re = ((INT)$cliente['consigna'] + (INT)$cliente['consignaanterior']); echo ($re) ; ?>
+                                                    </td>
+                                                </tr>
+                                                <?php
                                                 endwhile;
                                                 endif;
                                                 ?>
@@ -320,7 +326,7 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                     </div>
                 </div>
                 <!-- <?php $mostrar = listarClientesVentas( $conexion ); $mostrar2 = mysqli_fetch_assoc($mostrar); var_dump($mostrar2) ?> -->
-                    
+                
             </main>
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid">

@@ -2,3 +2,7 @@
 $(document).ready(function() {
   $('#dataTable').DataTable();
 });
+//Cambio Personal
+$(document).ready(function() {
+  $('#dataTable2').DataTable();
+});
