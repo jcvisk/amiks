@@ -6,9 +6,9 @@ if ( isset( $_SESSION['usuario_admin'] ) ) {
     session_destroy();
 }
 
-if ( isset( $_SESSION['usuario'] ) ) {
+if ( isset( $_SESSION['usuario_distribuidor'] ) ) {
     session_destroy();
 }
-header( 'Location: index.php' );
+header( 'Location: ../../dist/login.php' );
 
 ?>
