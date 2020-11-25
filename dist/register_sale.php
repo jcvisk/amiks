@@ -147,8 +147,10 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                         <div class="col-12">
                             <form method="POST" action="../src/core/register_sale.php">
                                 <div class="form-row">
-                                <input class="form-control sr-only" value="<?= $_SESSION['usuario_distribuidor']['id'] ?>" name="distribuidor" id="distribuidor" type="text" required/>
-                                <div class="col-md">
+                                    <input class="form-control sr-only"
+                                        value="<?= $_SESSION['usuario_distribuidor']['id'] ?>" name="distribuidor"
+                                        id="distribuidor" type="text" required />
+                                    <div class="col-md">
                                         <div class="form-group">
                                             <label class="small mb-1" for="cliente">Cliente</label>
                                             <select class="custom-select" name="cliente" id="cliente" required>
@@ -174,7 +176,8 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                                     <div class="col-md">
                                         <div class="form-group">
                                             <label class="small mb-1" for="presentacion">Presentación</label>
-                                            <select class="custom-select" name="presentacion" id="presentacion" required>
+                                            <select class="custom-select" name="presentacion" id="presentacion"
+                                                required>
                                                 <option selected>Seleccionar</option>
                                                 <?php
                                                 $tabla = 'productos';
@@ -193,88 +196,96 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                                     <div class="col-md">
                                         <div class="form-group">
                                             <label class="small mb-1" for="pagadas">Pagadas</label>
-                                            <input class="form-control" name="pagadas" id="pagadas" type="number" min="1" required/>
+                                            <input class="form-control" name="pagadas" id="pagadas" type="number"
+                                                min="1" required />
                                         </div>
                                     </div>
                                     <div class="col-md">
                                         <div class="form-group">
                                             <label class="small mb-1" for="vendidas">Vendidas</label>
-                                            <input class="form-control" name="vendidas" id="vendidas" type="number" min="1" required/>
+                                            <input class="form-control" name="vendidas" id="vendidas" type="number"
+                                                min="1" required />
                                         </div>
                                     </div>
                                     <div class="col-md">
                                         <div class="form-group">
                                             <label class="small mb-1" for="cambios">Cambios</label>
-                                            <input class="form-control" name="cambios" id="cambios" type="number" min="1" required/>
+                                            <input class="form-control" name="cambios" id="cambios" type="number"
+                                                min="1" required />
                                         </div>
                                     </div>
                                     <div class="col-md">
                                         <div class="form-group">
                                             <label class="small mb-1" for="consignas">Consignas</label>
-                                            <input class="form-control" name="consignas" id="consignas" type="number" min="1" required/>
+                                            <input class="form-control" name="consignas" id="consignas" type="number"
+                                                min="1" required />
                                         </div>
                                     </div>
-                                    <div class="col-md">
+                                    <div class="col-md justify-content-be">
                                         <div class="form-group">
                                             <label class="small mb-1" for="consigna_anterior">Consigna Anterior</label>
-                                            <input class="form-control" name="consigna_anterior" id="consigna_anterior" type="number" min="1" required/>
+                                            <input class="form-control" name="consigna_anterior" id="consigna_anterior"
+                                                type="number" min="1" required />
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group mt-4 mb-5 text-right">
-                                    <button class="btn btn-primary" type="submit">Guardar</button>
+                                <div class="form-row justify-content-end">
+                                    <div class="form-group mt-4 mb-5 text-right">
+                                        <button class="btn btn-primary" type="submit">Guardar</button>
+                                    </div>
                                 </div>
+
                             </form>
                         </div>
                         <div class="col-12">
-                        <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-table mr-1"></i>
-                            Ventas y Consiganas
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Cliente</th>
-                                            <th>Presentación</th>
-                                            <th>Pagadas</th>
-                                            <th>Vendidas</th>
-                                            <th>Cambio</th>
-                                            <th>Consigna</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    <?php
-                                        $clientesVentas = listarClientesVentas( $conexion );
-                                        if (!empty($clientesVentas)) :
-                                        while ( $cliente = mysqli_fetch_assoc( $clientesVentas ) ) : ?>
-                                        <tr>
-                                            <td><?= $cliente['nombreempresa']; ?></td>
-                                            <td><?= $cliente['pagada']; ?></td>
-                                            <td><?= $cliente['pagada']; ?></td>
-                                            <td><?= $cliente['vendida']; ?></td>
-                                            <td><?= $cliente['cambios']; ?></td>
-                                            <td><?= $cliente['consigna']; ?></td>
-                                            <td><?= $cliente['consignaanterior']; ?></td>
-                                            <td><a href="../src/core/delete_distribuitor.php?id=<?= $distribuidor['id']; ?>"><i class="fas fa-trash-alt" style="color: red;"></i></a></td>
-                                        </tr>
-                                        <?php
-                                        endwhile;
-                                        endif;
-                                        ?>
-                                       
-                                    </tbody>
-                                </table>
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    <i class="fas fa-table mr-1"></i>
+                                    Ventas y Consiganas
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Cliente</th>
+                                                    <th>Presentación</th>
+                                                    <th>Pagadas</th>
+                                                    <th>Vendidas</th>
+                                                    <th>Cambios</th>
+                                                    <th>Consignas</th>
+                                                    <th>Consigna Anterior</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                $clientesVentas = listarClientesVentas( $conexion );
+                                                if (!empty($clientesVentas)) :
+                                                while ( $cliente = mysqli_fetch_assoc( $clientesVentas ) ) : ?>
+                                                        <tr>
+                                                            <td><?= $cliente['nombreempresa']; ?></td>
+                                                            <td><?= $cliente['pagada']; ?></td>
+                                                            <td><?= $cliente['pagada']; ?></td>
+                                                            <td><?= $cliente['vendida']; ?></td>
+                                                            <td><?= $cliente['cambios']; ?></td>
+                                                            <td><?= $cliente['consigna']; ?></td>
+                                                            <td><?= $cliente['consignaanterior']; ?></td>
+                                                        </tr>
+                                                        <?php
+                                                endwhile;
+                                                endif;
+                                                ?>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
                         </div>
                     </div>
                 </div>
                 <!-- <?php $mostrar = listarClientesVentas( $conexion ); $mostrar2 = mysqli_fetch_assoc($mostrar); var_dump($mostrar2) ?> -->
-                
+                    
             </main>
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid">
