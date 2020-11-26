@@ -234,17 +234,17 @@ if (!isset($_SESSION['usuario_admin'])) {
                                                 <tbody>
                                                     <?php
                                                 $tabla = 'clientes';
-                                                $distribuidores = getAllRecords( $conexion, $tabla );
-                                                if (!empty($distribuidores)) :
-                                                while ( $distribuidor = mysqli_fetch_assoc( $distribuidores ) ) : 
+                                                $clientes = getAllRecords( $conexion, $tabla );
+                                                if (!empty($clientes)) :
+                                                while ( $cliente = mysqli_fetch_assoc( $clientes ) ) : 
                                                 ?>
                                                     <tr>
-                                                        <td><?= $distribuidor['id']; ?></td>
-                                                        <td><?= $distribuidor['nombreempresa']; ?></td>
-                                                        <td><?= $distribuidor['propietario']; ?></td>
-                                                        <td><?= $distribuidor['ubicacion']; ?></td>
-                                                        <td><?= $distribuidor['telefono']; ?></td>
-                                                        <td><?= $distribuidor['celular']; ?></td>
+                                                        <td><?= $cliente['id']; ?></td>
+                                                        <td><?= $cliente['nombreempresa']; ?></td>
+                                                        <td><?= $cliente['propietario']; ?></td>
+                                                        <td><?= $cliente['ubicacion']; ?></td>
+                                                        <td><?= $cliente['telefono']; ?></td>
+                                                        <td><?= $cliente['celular']; ?></td>
                                                         <td>
                                                             <a href="#" data-toggle="modal" data-target="#modalDelete"
                                                                 role="button">
@@ -276,7 +276,7 @@ if (!isset($_SESSION['usuario_admin'])) {
                                                                     <button type="button" class="btn btn-secondary"
                                                                         data-dismiss="modal">Cancelar</button>
 
-                                                                    <a href="../src/core/delete_client.php?id=<?= $distribuidor['id']; ?>"
+                                                                    <a href="../src/core/delete_client.php?id=<?= $cliente['id']; ?>"
                                                                         type="button" role="button"
                                                                         class="btn btn-danger">Eliminar</a>
 
