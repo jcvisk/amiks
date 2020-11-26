@@ -8,19 +8,7 @@ function borrarErrores() {
         $_SESSION['error_login'] = null;
     }
 }
-//mostrar la lista de los distribuidores
 
-function obtenerRegistros( $conexion, $tabla ) {
-    $sql = "SELECT * FROM $tabla ";
-    $distribuidores = mysqli_query( $conexion, $sql );
-
-    $resultado = array();
-    if ( $distribuidores && mysqli_num_rows( $distribuidores ) >= 1 ) {
-        $resultado = $distribuidores;
-    }
-
-    return $resultado;
-}
 //mostrar la los registros com un where
 
 function obtenerRegistro( $conexion, $tabla, $id, $idforeaneo ) {
