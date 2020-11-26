@@ -1,7 +1,7 @@
 <?php
 
 require_once '../src/core/conexion.php';
-require_once '../src/core/helpers.php';
+require_once '../src/core/helpers/helpers_clients.php';
 
 if (!isset($_SESSION['usuario_admin'])) {
     header('Location: login.php');
@@ -192,7 +192,7 @@ if (!isset($_SESSION['usuario_admin'])) {
                                                 <option selected>Seleccionar</option>
                                                 <?php
                                                 $tabla = 'distribuidores';
-                                                $distribuidores = obtenerRegistros( $conexion, $tabla );
+                                                $distribuidores = getAllRecords( $conexion, $tabla );
                                                 if (!empty($distribuidores)) :
                                                 while ( $distribuidor = mysqli_fetch_assoc( $distribuidores ) ) : ?>
                                                 <option value="<?= $distribuidor['id']; ?>">
@@ -234,7 +234,7 @@ if (!isset($_SESSION['usuario_admin'])) {
                                                 <tbody>
                                                     <?php
                                                 $tabla = 'clientes';
-                                                $distribuidores = obtenerRegistros( $conexion, $tabla );
+                                                $distribuidores = getAllRecords( $conexion, $tabla );
                                                 if (!empty($distribuidores)) :
                                                 while ( $distribuidor = mysqli_fetch_assoc( $distribuidores ) ) : 
                                                 ?>
@@ -360,7 +360,7 @@ if (!isset($_SESSION['usuario_admin'])) {
                                                 <option selected>Seleccionar</option>
                                                 <?php
                                                 $tabla = 'distribuidores';
-                                                $distribuidores = obtenerRegistros( $conexion, $tabla );
+                                                $distribuidores = getAllRecords( $conexion, $tabla );
                                                 if (!empty($distribuidores)) :
                                                 while ( $distribuidor = mysqli_fetch_assoc( $distribuidores ) ) : ?>
                                                 <option value="<?= $distribuidor['id']; ?>">

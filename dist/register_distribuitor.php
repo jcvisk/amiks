@@ -1,7 +1,7 @@
 <?php
 
 require_once '../src/core/conexion.php';
-require_once '../src/core/helpers.php';
+require_once '../src/core/helpers/helpers_distribuitor.php';
 
 if (!isset($_SESSION['usuario_admin'])) {
     header('Location: login.php');
@@ -221,7 +221,7 @@ if (!isset($_SESSION['usuario_admin'])) {
                                                 <tbody>
                                                 <?php
                                                 $tabla = 'distribuidores';
-                                                $distribuidores = obtenerRegistros( $conexion, $tabla );
+                                                $distribuidores = getAllRecords( $conexion, $tabla );
                                                 if (!empty($distribuidores)) :
                                                 while ( $distribuidor = mysqli_fetch_assoc( $distribuidores ) ) : ?>
                                                     <tr>
