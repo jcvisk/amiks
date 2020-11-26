@@ -58,6 +58,19 @@ if (!isset($_SESSION['usuario_admin'])) {
                                 Dashboard
                             </a>
                             <div class="sb-sidenav-menu-heading">Interface</div>
+
+                            <a class="nav-link" href="register_distribuitor.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                                Crear Distribuidor
+                            </a>
+                            <a class="nav-link" href="register_client.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-building"></i></div>
+                                Crear Cliente
+                            </a>
+                            <a class="nav-link" href="create_produts.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-wine-bottle"></i></div>
+                                Crear Productos
+                            </a>
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Layouts
