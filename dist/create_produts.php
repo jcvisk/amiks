@@ -137,7 +137,7 @@ if (!isset($_SESSION['usuario_admin'])) {
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid">
-                    <h1 class="mt-4">Ventas, Consignas y Devoluciones</h1>
+                    <h1 class="mt-4">Crear Productos</h1>
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item active">Dashboard</li>
                     </ol>
