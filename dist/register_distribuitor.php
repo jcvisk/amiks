@@ -232,8 +232,43 @@ if (!isset($_SESSION['usuario_admin'])) {
                                                         <td><?= $distribuidor['celular']; ?></td>
                                                         <td><?= $distribuidor['correo']; ?></td>
                                                         <td><?= $distribuidor['licencia']; ?></td>
-                                                        <td><a href="../src/core/delete_distribuitor.php?id=<?= $distribuidor['id']; ?>"><i class="fas fa-trash-alt" style="color: red;"></i></a></td>
+                                                        <td>
+                                                            <a href="#" data-toggle="modal" data-target="#modalDelete"
+                                                                role="button">
+                                                                <i class="fas fa-trash-alt" style="color: red;"></i>
+                                                            </a>
+                                                        </td>
                                                     </tr>
+                                                    <!-- Modal - Delete -->
+                                                    <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog"
+                                                        aria-labelledby="modalDeleteLabel" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="modalDeleteLabel">
+                                                                        ¿Seguro que deseas eliminar este distribuidor?</h5>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="alert alert-danger" role="alert">
+                                                                        Mensaje de eliminacion
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-dismiss="modal">Cancelar</button>
+
+                                                                    <a href="../src/core/delete_distribuitor.php?id=<?= $distribuidor['id']; ?>"
+                                                                        type="button" role="button"
+                                                                        class="btn btn-danger">Eliminar</a>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 <?php
                                                 endwhile;
                                                 endif;
