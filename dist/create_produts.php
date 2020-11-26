@@ -156,13 +156,13 @@ if (!isset($_SESSION['usuario_admin'])) {
                                     <div class="col-md">
                                         <div class="form-group">
                                             <label class="small mb-1" for="precioBase">Precio Base</label>
-                                            <input class="form-control" name="precioBase" id="precioBase" type="number" min="1" disabled/>
+                                            <input class="form-control" name="precioBase" id="precioBase" type="number" min="0"/>
                                         </div>
                                     </div>
                                     <div class="col-md">
                                         <div class="form-group">
-                                            <label class="small mb-1" for="precio">Precio Venta</label>
-                                            <input class="form-control" name="precio" id="precio" type="number" min="1" required/>
+                                            <label class="small mb-1" for="precioVenta">Precio Venta</label>
+                                            <input class="form-control" name="precioVenta" id="precioVenta" type="number" min="0" required/>
                                         </div>
                                     </div>
                                 </div>
@@ -197,8 +197,8 @@ if (!isset($_SESSION['usuario_admin'])) {
                                                     <tr>
                                                         <td><?= $productos['id']; ?></td>
                                                         <td><?= $productos['descripcion']; ?></td>
-                                                        <td>***</td>
-                                                        <td><?= $productos['precio']; ?></td>
+                                                        <td><?= $productos['precioBase']; ?></td>
+                                                        <td><?= $productos['precioVenta']; ?></td>
                                                     </tr>
                                                 <?php
                                                 endwhile;
