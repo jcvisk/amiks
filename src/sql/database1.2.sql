@@ -43,7 +43,8 @@ CREATE TABLE `clientes` (
 CREATE TABLE `productos` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `descripcion` VARCHAR(100) NOT NULL,
-  `precio` DOUBLE NOT NULL,
+  `precioBase` DOUBLE NOT NULL,
+  `precioVenta` DOUBLE NOT NULL,
   `status` INT NOT NULL,
 
   CONSTRAINT `pk_productos` PRIMARY KEY (`id`)
