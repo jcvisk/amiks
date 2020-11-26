@@ -7,7 +7,7 @@ if ( isset( $_POST ) ) {
     $precio = isset( $_POST['precio'] ) ? (DOUBLE)mysqli_real_escape_string( $conexion, $_POST['precio'] ) : '' ;
 
     /*Tabla clientes*/
-    $sqlProductos = "INSERT INTO productos VALUES(NULL, '$presentacion', $precio);";
+    $sqlProductos = "INSERT INTO productos VALUES(NULL, '$presentacion', $precio, 1);";
     $saveProductos = mysqli_query( $conexion, $sqlProductos );
     if ( $saveProductos ) {
         header( 'Location: ../../dist/create_produts.php' );

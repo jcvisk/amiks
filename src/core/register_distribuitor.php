@@ -14,7 +14,7 @@ if ( isset( $_POST ) ) {
     $encrypted_password = password_hash( $password, PASSWORD_BCRYPT, ['cost'=>4] );
 
     /*Tabla distribuidores*/
-    $sqlDisrtribuidores = "INSERT INTO distribuidores VALUES(NULL, '$nombre', '$apellido', '$celular', $edad, '$correo', '$encrypted_password', '$licencia', $administrador);";
+    $sqlDisrtribuidores = "INSERT INTO distribuidores VALUES(NULL, '$nombre', '$apellido', '$celular', $edad, '$correo', '$encrypted_password', '$licencia', 1, $administrador);";
     $saveDisrtribuidores = mysqli_query( $conexion, $sqlDisrtribuidores );
     if ( $saveDisrtribuidores ) {
         header( 'Location: ../../dist/register_distribuitor.php' );
