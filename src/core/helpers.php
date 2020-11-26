@@ -54,4 +54,40 @@ function listarClientesVentas( $conexion ) {
     return $resultado;
 }
 
+function listarProductosByDescripcion($conexion, $descripcion){
+
+    $sql = "SELECT * FROM productos WHERE descripcion='$descripcion';";
+    $datos = mysqli_query( $conexion, $sql );
+
+    if ( $datos && mysqli_num_rows( $datos ) == 1 ) {
+        $arreglo = mysqli_fetch_assoc( $datos );
+
+        $cantidad = (INT)mysqli_num_rows( $datos );
+        
+        $precio = (INT)$arreglo['precio'];
+
+        $resultado = $cantidad * $precio;
+    }
+
+    return $resultado;
+}
+
+function test( $conexion){
+    $sql = "SELECT productos.*, ventas.vendida, ventas.pagada
+    FROM ventas
+    INNER JOIN productos
+    WHERE productos.descripcion = 0.50; ";
+
+    $datos = mysqli_query( $conexion, $sql );
+
+    $resultado = array();
+
+    if ( $datos && mysqli_num_rows( $datos ) >= 1 ) {
+        $arreglo = mysqli_fetch_assoc( $datos );
+        $resultado = $arreglo;
+    }
+
+    return $resultado;
+}
+
 ?>
