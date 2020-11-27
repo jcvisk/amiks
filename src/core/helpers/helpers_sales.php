@@ -13,4 +13,19 @@ function getAllRecords( $conexion, $tabla ) {
     return $resultado;
 }
 
+function getTotales($conexion, $id){
+    $sql = "SELECT ventas.pagada, ventas.vendida FROM ventas WHERE idproducto = $id;";
+    $datos = mysqli_query( $conexion, $sql );
+
+    if ( $datos && mysqli_num_rows( $datos ) >= 1 ) {
+
+        $arrayDatos = mysqli_fetch_row($datos);
+
+        var_dump( $arrayDatos); die();
+
+         $resultado = $arrayDatos[0] + $arrayDatos[1];
+    }
+
+    return $resultado;
+}
 ?>
