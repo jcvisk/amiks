@@ -251,38 +251,31 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                                             <thead>
                                                 <tr>
                                                     <?php
-                                                    $tabla = 'productos';
-                                                    $distribuidores = getAllRecords( $conexion, $tabla );
-                                                    if (!empty($distribuidores)) :
-                                                    while ( $distribuidor = mysqli_fetch_row( $distribuidores ) ) : ?>
+                                                    $productos = getAllRecords( $conexion, 'productos' );
+                                                    if (!empty($productos)) :
+                                                    while ( $producto = mysqli_fetch_row( $productos ) ) : ?>
                                                     
-                                                    <th><?= $distribuidor[1]; ?></th>
+                                                    <th><?= $producto[1]; ?></th>
+
                                                     <?php
                                                     endwhile;
                                                     endif;
                                                     ?>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                    <?php 
-                                                    $distribuidores = getAllRecords( $conexion, 'productos' );
-                                                    if (!empty($distribuidores)) : ?>
-
-                                                        <tr>
-                                                        <th><?php var_dump(getTotales($conexion, 1)); ?></th>
-                                                        </tr>
-
-                                                    <?php 
-                                                    endif; 
+                                            <tbody>  
+                                                    <?php
+                                                    $i=1;
+                                                    $columnas = getAllRecords( $conexion, 'productos' );
+                                                    if (!empty($columnas)) : ?>
+                                                    <tr>
+                                                    <?php while ( $columna = mysqli_fetch_row( $columnas ) ) :?>
+                                                        <th><?php echo getTotales($conexion, $i); ?></th>
+                                                    <?php $i++; endwhile; ?>
+                                                    </tr>
+                                                    <?php
+                                                    endif;
                                                     ?>
-                                                    <!-- 
-                                                        <th>$ <?= listarProductosByDescripcion( $conexion, '1L' ); ?></th>
-                                                        <th>$ <?= listarProductosByDescripcion( $conexion, '0.75L' ); ?></th>
-                                                        <th>$ <?= listarProductosByDescripcion( $conexion, 'Galon' ); ?></th>
-                                                        <th>$ <?= listarProductosByDescripcion( $conexion, '0.50' ); ?></th>
-                                                    -->
-                                                    
-                                                    
                                             </tbody>
                                         </table>
                                     </div>

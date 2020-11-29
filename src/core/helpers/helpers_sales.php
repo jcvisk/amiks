@@ -1,6 +1,7 @@
 <?php
 
 //Devuelve todos los registros de una tabla
+
 function getAllRecords( $conexion, $tabla ) {
     $sql = "SELECT * FROM $tabla WHERE status = 1";
     $datos = mysqli_query( $conexion, $sql );
@@ -13,17 +14,21 @@ function getAllRecords( $conexion, $tabla ) {
     return $resultado;
 }
 
-function getTotales($conexion, $id){
-    $sql = "SELECT ventas.pagada, ventas.vendida FROM ventas WHERE idproducto = $id;";
-    $datos = mysqli_query( $conexion, $sql );
+function getTotales( $conexion, $id ) {
+    $sql = "SELECT ventas.idproducto FROM ventas WHERE idproducto = $id;";
+    $consulta = mysqli_query( $conexion, $sql );
+    if ( $consulta && mysqli_num_rows( $consulta ) >= 1 ) {
+        $sql = "SELECT SUM(pagada), SUM(vendida) FROM ventas WHERE idproducto = $id;";
+        $datos = mysqli_query( $conexion, $sql );
 
-    if ( $datos && mysqli_num_rows( $datos ) >= 1 ) {
+        if ( $datos && mysqli_num_rows( $datos ) >= 1 ) {
 
-        $arrayDatos = mysqli_fetch_row($datos);
+            $arrayDatos = mysqli_fetch_row( $datos );
 
-        var_dump( $arrayDatos); die();
-
-         $resultado = $arrayDatos[0] + $arrayDatos[1];
+            $resultado = $arrayDatos[0] + $arrayDatos[1];
+        }
+    } else {
+        $resultado = 0;
     }
 
     return $resultado;
