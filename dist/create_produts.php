@@ -1,7 +1,7 @@
 <?php
 
 require_once '../src/core/conexion.php';
-require_once '../src/core/helpers.php';
+require_once '../src/core/helpers/helpers_products.php';
 
 if (!isset($_SESSION['usuario_admin'])) {
     header('Location: login.php');
@@ -137,7 +137,7 @@ if (!isset($_SESSION['usuario_admin'])) {
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid">
-                    <h1 class="mt-4">Ventas, Consignas y Devoluciones</h1>
+                    <h1 class="mt-4">Crear Productos</h1>
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item active">Dashboard</li>
                     </ol>
@@ -147,16 +147,22 @@ if (!isset($_SESSION['usuario_admin'])) {
                         <div class="col-12">
                             <form method="POST" action="../src/core/create_produts.php">
                                 <div class="form-row">
-                                    <div class="col-md-6">
+                                    <div class="col-md">
                                         <div class="form-group">
                                             <label class="small mb-1" for="presentacion">Presentación</label>
                                             <input class="form-control" name="presentacion" id="presentacion" type="text" required/>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md">
                                         <div class="form-group">
-                                            <label class="small mb-1" for="precio">Precio</label>
-                                            <input class="form-control" name="precio" id="precio" type="number" min="1" required/>
+                                            <label class="small mb-1" for="precioBase">Precio Base</label>
+                                            <input class="form-control" name="precioBase" id="precioBase" type="number" step="0.01" min="0"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md">
+                                        <div class="form-group">
+                                            <label class="small mb-1" for="precioVenta">Precio Venta</label>
+                                            <input class="form-control" name="precioVenta" id="precioVenta" type="number" step="0.01" min="0" required/>
                                         </div>
                                     </div>
                                 </div>
@@ -169,7 +175,7 @@ if (!isset($_SESSION['usuario_admin'])) {
                             <div class="card mb-4">
                                 <div class="card-header">
                                     <i class="fas fa-table mr-1"></i>
-                                    Datos de Distribuidores
+                                    Datos de Productos
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -177,26 +183,22 @@ if (!isset($_SESSION['usuario_admin'])) {
                                             <theacd>
                                                 <tr>
                                                     <th>Id</th>
-                                                    <th>Nombre</th>
-                                                    <th>Apellido</th>
-                                                    <th>Edad</th>
-                                                    <th>Celular</th>
-                                                    <th>Correo</th>
+                                                    <th>Presentacion</th>
+                                                    <th>Precio Base</th>
+                                                    <th>Precio Venta</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
                                                 <?php
-                                                $tabla = 'distribuidores';
-                                                $distribuidores = obtenerRegistros( $conexion, $tabla );
-                                                if (!empty($distribuidores)) :
-                                                while ( $distribuidor = mysqli_fetch_assoc( $distribuidores ) ) : ?>
+                                                $tabla = 'productos';
+                                                $datos = getAllRecords( $conexion, $tabla );
+                                                if (!empty($datos)) :
+                                                while ( $productos = mysqli_fetch_assoc( $datos ) ) : ?>
                                                     <tr>
-                                                        <td><?= $distribuidor['id']; ?></td>
-                                                        <td><?= $distribuidor['nombre']; ?></td>
-                                                        <td><?= $distribuidor['apellido']; ?></td>
-                                                        <td><?= $distribuidor['edad']; ?></td>
-                                                        <td><?= $distribuidor['celular']; ?></td>
-                                                        <td><?= $distribuidor['correo']; ?></td>
+                                                        <td><?= $productos['id']; ?></td>
+                                                        <td><?= $productos['descripcion']; ?></td>
+                                                        <td><?= $productos['precioBase']; ?></td>
+                                                        <td><?= $productos['precioVenta']; ?></td>
                                                     </tr>
                                                 <?php
                                                 endwhile;

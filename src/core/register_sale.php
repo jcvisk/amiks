@@ -13,7 +13,7 @@ if ( isset( $_POST ) ) {
     $cliente = isset( $_POST['cliente'] ) ? ( INT ) mysqli_real_escape_string( $conexion, $_POST['cliente'] ) : '' ;
 
     /*Tabla Ventas*/
-    $sqlVentas = "INSERT INTO ventas VALUES(NULL, $pagada, $vendida, $cambio, $consigna, $consignaAnterior, $distribuidor, $producto, $cliente );";
+    $sqlVentas = "INSERT INTO ventas VALUES(NULL, $pagada, $vendida, $cambio, $consigna, $consignaAnterior, 1, $distribuidor, $producto, $cliente );";
 
     $saveVentas = mysqli_query( $conexion, $sqlVentas );
     if ( $saveVentas ) {

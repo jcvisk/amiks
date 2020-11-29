@@ -8,19 +8,7 @@ function borrarErrores() {
         $_SESSION['error_login'] = null;
     }
 }
-//mostrar la lista de los distribuidores
 
-function obtenerRegistros( $conexion, $tabla ) {
-    $sql = "SELECT * FROM $tabla ";
-    $distribuidores = mysqli_query( $conexion, $sql );
-
-    $resultado = array();
-    if ( $distribuidores && mysqli_num_rows( $distribuidores ) >= 1 ) {
-        $resultado = $distribuidores;
-    }
-
-    return $resultado;
-}
 //mostrar la los registros com un where
 
 function obtenerRegistro( $conexion, $tabla, $id, $idforeaneo ) {
@@ -49,6 +37,42 @@ function listarClientesVentas( $conexion ) {
     $resultado = array();
     if ( $clientes && mysqli_num_rows( $clientes ) >= 1 ) {
         $resultado = $clientes;
+    }
+
+    return $resultado;
+}
+
+function listarProductosByDescripcion($conexion, $descripcion){
+
+    $sql = "SELECT * FROM productos WHERE descripcion='$descripcion';";
+    $datos = mysqli_query( $conexion, $sql );
+
+    if ( $datos && mysqli_num_rows( $datos ) == 1 ) {
+        $arreglo = mysqli_fetch_assoc( $datos );
+
+        $cantidad = (INT)mysqli_num_rows( $datos );
+        
+        $precio = (INT)$arreglo['precio'];
+
+        $resultado = $cantidad * $precio;
+    }
+
+    return $resultado;
+}
+
+function test( $conexion){
+    $sql = "SELECT productos.*, ventas.vendida, ventas.pagada
+    FROM ventas
+    INNER JOIN productos
+    WHERE productos.descripcion = 0.50; ";
+
+    $datos = mysqli_query( $conexion, $sql );
+
+    $resultado = array();
+
+    if ( $datos && mysqli_num_rows( $datos ) >= 1 ) {
+        $arreglo = mysqli_fetch_assoc( $datos );
+        $resultado = $arreglo;
     }
 
     return $resultado;

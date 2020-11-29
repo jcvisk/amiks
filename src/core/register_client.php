@@ -11,7 +11,7 @@ if ( isset( $_POST ) ) {
     $distribuidor = isset( $_POST['distribuidor'] ) ? (INT) mysqli_real_escape_string( $conexion, $_POST['distribuidor'] )  : '' ;
     
     /*Tabla clientes*/
-    $sqlClientes = "INSERT INTO clientes VALUES(NULL, '$nombreEmpresa', '$propietario', '$ubicacion', $telefono, '$celular', $distribuidor );";
+    $sqlClientes = "INSERT INTO clientes VALUES(NULL, '$nombreEmpresa', '$propietario', '$ubicacion', $telefono, '$celular', 1, $distribuidor );";
     $saveClientes = mysqli_query( $conexion, $sqlClientes );
     if ( $saveClientes ) {
         header( 'Location: ../../dist/register_client.php' );

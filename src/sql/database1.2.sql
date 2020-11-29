@@ -4,6 +4,7 @@ CREATE TABLE `administradores` (
   `apellido` VARCHAR(100) NOT NULL,
   `correo` VARCHAR(100) NOT NULL,
   `password` VARCHAR(255) NOT NULL,
+  `status` INT NOT NULL,
 
   CONSTRAINT `pk_idadministradores` PRIMARY KEY (`id`),
   CONSTRAINT `uq_correo` UNIQUE(`correo`)
@@ -18,6 +19,7 @@ CREATE TABLE `distribuidores` (
   `correo` VARCHAR(100) NOT NULL,
   `password` VARCHAR(100) NOT NULL,
   `licencia` VARCHAR(100) NOT NULL,
+  `status` INT NOT NULL,
   `idadministrador` INT NOT NULL,
 
   CONSTRAINT `pk_distribuidores` PRIMARY KEY (`id`),
@@ -31,6 +33,7 @@ CREATE TABLE `clientes` (
   `ubicacion` VARCHAR(100) NOT NULL,
   `telefono` VARCHAR(100) NOT NULL,
   `celular` VARCHAR(100) NOT NULL,
+  `status` INT NOT NULL,
   `iddistribuidor` INT NOT NULL,
 
   CONSTRAINT `pk_clientes` PRIMARY KEY (`id`),
@@ -40,7 +43,9 @@ CREATE TABLE `clientes` (
 CREATE TABLE `productos` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `descripcion` VARCHAR(100) NOT NULL,
-  `precio` DOUBLE NOT NULL,
+  `precioBase` DOUBLE NOT NULL,
+  `precioVenta` DOUBLE NOT NULL,
+  `status` INT NOT NULL,
 
   CONSTRAINT `pk_productos` PRIMARY KEY (`id`)
 )ENGINE = InnoDB;
@@ -52,6 +57,7 @@ CREATE TABLE `ventas` (
   `cambios` INT NULL,
   `consigna` INT NULL,
   `consignaanterior` INT NULL,
+  `status` INT NOT NULL,
   `iddistribuidor` INT NOT NULL,
   `idproducto` INT NOT NULL,
   `idcliente` INT NOT NULL,

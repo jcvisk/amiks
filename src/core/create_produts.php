@@ -3,11 +3,12 @@ if ( isset( $_POST ) ) {
     require_once 'conexion.php';
     require_once 'helpers.php';
 
-    $presentacion = isset( $_POST['presentacion'] ) ? mysqli_real_escape_string( $conexion, $_POST['presentacion'] ) : '' ;
-    $precio = isset( $_POST['precio'] ) ? (DOUBLE)mysqli_real_escape_string( $conexion, $_POST['precio'] ) : '' ;
+    $descripcion = isset( $_POST['presentacion'] ) ? mysqli_real_escape_string( $conexion, $_POST['presentacion'] ) : '' ;
+    $precioBase = isset( $_POST['precioBase'] ) ? (DOUBLE)mysqli_real_escape_string( $conexion, $_POST['precioBase'] ) : '' ;
+    $precioVenta = isset( $_POST['precioVenta'] ) ? (DOUBLE)mysqli_real_escape_string( $conexion, $_POST['precioVenta'] ) : '' ;
 
     /*Tabla clientes*/
-    $sqlProductos = "INSERT INTO productos VALUES(NULL, '$presentacion', $precio);";
+    $sqlProductos = "INSERT INTO productos VALUES(NULL, '$descripcion', $precioBase, $precioVenta, 1);";
     $saveProductos = mysqli_query( $conexion, $sqlProductos );
     if ( $saveProductos ) {
         header( 'Location: ../../dist/create_produts.php' );

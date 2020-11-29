@@ -11,7 +11,7 @@ $encrypted_password = password_hash( $password, PASSWORD_BCRYPT, ['cost'=>4] );
 echo 'saliendo de encliptando la pass';
 echo 'entrando a sql';
 //agregando ususario a la base de datos
-$sql = "INSERT INTO administradores VALUES(NULL, '$nombre', '$apellido', '$correo', '$encrypted_password');";
+$sql = "INSERT INTO administradores VALUES(NULL, '$nombre', '$apellido', '$correo', '$encrypted_password', 1);";
 echo 'saliendo de sql';
 echo 'entrando a mysqli_query';
 $save_in_db = mysqli_query( $conexion, $sql );

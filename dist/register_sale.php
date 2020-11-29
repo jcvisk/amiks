@@ -2,6 +2,8 @@
 
 require_once '../src/core/conexion.php';
 require_once '../src/core/helpers.php';
+require_once '../src/core/helpers/helpers_sales.php';
+
 
 if (!isset($_SESSION['usuario_distribuidor'])) {
     header('Location: login.php');
@@ -181,7 +183,7 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                                                 <option selected>Seleccionar</option>
                                                 <?php
                                                 $tabla = 'productos';
-                                                $distribuidores = obtenerRegistros( $conexion, $tabla );
+                                                $distribuidores = getAllRecords( $conexion, $tabla );
                                                 if (!empty($distribuidores)) :
                                                 while ( $distribuidor = mysqli_fetch_assoc( $distribuidores ) ) : ?>
                                                 <option value="<?= $distribuidor['id']; ?>">
@@ -197,28 +199,28 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                                         <div class="form-group">
                                             <label class="small mb-1" for="pagadas">Pagadas</label>
                                             <input class="form-control" name="pagadas" id="pagadas" type="number"
-                                                min="1" required />
+                                                min="0" required />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="small mb-1" for="vendidas">Vendidas</label>
                                             <input class="form-control" name="vendidas" id="vendidas" type="number"
-                                                min="1" required />
+                                                min="0" required />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="small mb-1" for="cambios">Cambios</label>
                                             <input class="form-control" name="cambios" id="cambios" type="number"
-                                                min="1" required />
+                                                min="0" required />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="small mb-1" for="consignas">Consignas</label>
                                             <input class="form-control" name="consignas" id="consignas" type="number"
-                                                min="1" required />
+                                                min="0" required />
                                         </div>
                                     </div>
                                 </div>
@@ -227,7 +229,7 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                                         <div class="form-group">
                                             <label class="small mb-1" for="consigna_anterior">Consigna Anterior</label>
                                             <input class="form-control" name="consigna_anterior" id="consigna_anterior"
-                                                type="number" min="1" required />
+                                                type="number" min="0" required />
                                         </div>
                                     </div>
                                     <div class="form-group mt-4 mb-5 text-right">
@@ -250,11 +252,11 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                                                 <tr>
                                                     <?php
                                                     $tabla = 'productos';
-                                                    $distribuidores = obtenerRegistros( $conexion, $tabla );
+                                                    $distribuidores = getAllRecords( $conexion, $tabla );
                                                     if (!empty($distribuidores)) :
-                                                    while ( $distribuidor = mysqli_fetch_assoc( $distribuidores ) ) : ?>
-                                                    <th>$ <?= $distribuidor['descripcion']; ?></th>
-
+                                                    while ( $distribuidor = mysqli_fetch_row( $distribuidores ) ) : ?>
+                                                    
+                                                    <th><?= $distribuidor[1]; ?></th>
                                                     <?php
                                                     endwhile;
                                                     endif;
@@ -262,12 +264,24 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                    <tr>
+                                                    <?php 
+                                                    $distribuidores = getAllRecords( $conexion, 'productos' );
+                                                    if (!empty($distribuidores)) : ?>
+
+                                                        <tr>
+                                                        <th><?php var_dump(getTotales($conexion, 1)); ?></th>
+                                                        </tr>
+
+                                                    <?php 
+                                                    endif; 
+                                                    ?>
+                                                    <!-- 
                                                         <th>$ <?= listarProductosByDescripcion( $conexion, '1L' ); ?></th>
                                                         <th>$ <?= listarProductosByDescripcion( $conexion, '0.75L' ); ?></th>
                                                         <th>$ <?= listarProductosByDescripcion( $conexion, 'Galon' ); ?></th>
                                                         <th>$ <?= listarProductosByDescripcion( $conexion, '0.50' ); ?></th>
-                                                    </tr>
+                                                    -->
+                                                    
                                                     
                                             </tbody>
                                         </table>
