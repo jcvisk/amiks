@@ -7,7 +7,7 @@ if ( isset( $_POST ) ) {
     $password = isset( $_POST['password'] ) ? $_POST['password'] : false;
     
     //comporbar las credenciales del ususario
-    $sql = "SELECT * FROM administradores where correo = '$usuario'";
+    $sql = "SELECT * FROM administradores where correo = '$usuario' AND status = 1";
     $login = mysqli_query( $conexion, $sql );
 
     if ( $login && mysqli_num_rows( $login ) == 1 ) {
@@ -33,7 +33,7 @@ if ( isset( $_POST ) ) {
     } else {
 
         //comporbar las credenciales del ususario
-        $sql = "SELECT * FROM distribuidores where correo = '$usuario'";
+        $sql = "SELECT * FROM distribuidores where correo = '$usuario' AND status = 1";
         $login = mysqli_query( $conexion, $sql );
 
         if ( $login && mysqli_num_rows( $login ) == 1 ) {
