@@ -56,7 +56,7 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Core</div>
-                        <a class="nav-link" href="index.php">
+                        <a class="nav-link" href="dashboard.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </a>
@@ -64,6 +64,10 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                         <a class="nav-link" href="register_sale.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                                 Ventas, Consignas y Devoluciones
+                        </a>
+                        <a class="nav-link" href="inside_case_report.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                                Reportar Insidencias
                         </a>
 
                     </div>
@@ -203,12 +207,13 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                                             </thead>
                                             <tbody>  
                                                     <?php
+                                                    $iddistribuidor = (INT)$_SESSION['usuario_distribuidor']['id'];
                                                     $i=1;
                                                     $columnas = getAllRecords( $conexion, 'productos' );
                                                     if (!empty($columnas)) : ?>
                                                     <tr>
                                                     <?php while ( $columna = mysqli_fetch_row( $columnas ) ) :?>
-                                                        <th><?php echo getTotales($conexion, $i); ?></th>
+                                                        <th><?php echo getTotales($conexion, $i, $iddistribuidor); ?></th>
                                                     <?php $i++; endwhile; ?>
                                                     </tr>
                                                     <?php
@@ -243,7 +248,8 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                $clientesVentas = listarClientesVentas( $conexion );
+                                                $iddistribuidor = (INT)$_SESSION['usuario_distribuidor']['id'];
+                                                $clientesVentas = listarClientesVentas( $conexion, $iddistribuidor );
                                                 if (!empty($clientesVentas)) :
                                                 while ( $cliente = mysqli_fetch_assoc( $clientesVentas ) ) : ?>
                                                 <tr>

@@ -85,7 +85,7 @@ if (!isset($_SESSION['usuario_admin'])) {
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ol>
-                        <div class="row">
+                        <div class="row justify-content-center">
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body">Crear Distribuidor</div>
@@ -113,6 +113,7 @@ if (!isset($_SESSION['usuario_admin'])) {
                                     </div>
                                 </div>
                             </div>
+                            <!-- 
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-danger text-white mb-4">
                                     <div class="card-body">Tarjeta Roja</div>
@@ -122,7 +123,9 @@ if (!isset($_SESSION['usuario_admin'])) {
                                     </div>
                                 </div>
                             </div>
+                             -->
                         </div>
+                        <!-- 
                         <div class="row">
                             <div class="col-xl-6">
                                 <div class="card mb-4">
@@ -143,6 +146,7 @@ if (!isset($_SESSION['usuario_admin'])) {
                                 </div>
                             </div>
                         </div>
+                         -->
                     </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">

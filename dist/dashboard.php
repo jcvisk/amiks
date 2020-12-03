@@ -48,7 +48,7 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="index.php">
+                            <a class="nav-link" href="dashboard.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
@@ -57,12 +57,9 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                                 <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                                 Ventas, Consignas y Devoluciones
                             </a>
-                            
-                            <div class="sb-sidenav-menu-heading">Addons</div>
-
-                            <a class="nav-link" href="sales.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Ventas
+                            <a class="nav-link" href="inside_case_report.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                               Reportar Insidencias
                             </a>
                         </div>
                     </div>
@@ -79,7 +76,7 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ol>
-                        <div class="row">
+                        <div class="row justify-content-center">
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body">Ventas, Consignas y Devoluciones</div>
@@ -91,13 +88,14 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body">Crear Cliente</div>
+                                    <div class="card-body">Reportar Insidencias</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="register_client.php"></a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
                             </div>
+                            <!-- 
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-success text-white mb-4">
                                     <div class="card-body">Success Card</div>
@@ -116,7 +114,9 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                                     </div>
                                 </div>
                             </div>
+                            -->
                         </div>
+                        <!-- 
                         <div class="row">
                             <div class="col-xl-6">
                                 <div class="card mb-4">
@@ -137,7 +137,7 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                                 </div>
                             </div>
                         </div>
-                        
+                         -->
                     </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
