@@ -24,14 +24,12 @@ function obtenerRegistro( $conexion, $tabla, $id, $idforeaneo ) {
 }
 //mostrar la los registros pertenecientes a un distribuidor
 
-function listarClientesVentas( $conexion ) {
-    $sql = "SELECT ventas.*,
-    clientes.nombreempresa,
-    productos.descripcion
-    FROM ventas INNER JOIN clientes
-    ON ventas.idcliente = clientes.id
-    INNER JOIN productos
-    ON ventas.idproducto = productos.id;";
+function listarClientesVentas( $conexion, $iddistribuidor ) {
+    $sql = "SELECT ventas.*, clientes.nombreempresa, productos.descripcion  
+    FROM ventas, productos, clientes 
+    WHERE ventas.idcliente = clientes.id
+    AND ventas.idproducto = productos.id
+    AND ventas.iddistribuidor = $iddistribuidor;";
     $clientes = mysqli_query( $conexion, $sql );
 
     $resultado = array();

@@ -14,11 +14,11 @@ function getAllRecords( $conexion, $tabla ) {
     return $resultado;
 }
 
-function getTotales( $conexion, $id ) {
-    $sql = "SELECT ventas.idproducto FROM ventas WHERE idproducto = $id;";
+function getTotales( $conexion, $idproducto, $iddistribuidor ) {
+    $sql = "SELECT ventas.idproducto FROM ventas WHERE idproducto = $idproducto;";
     $consulta = mysqli_query( $conexion, $sql );
     if ( $consulta && mysqli_num_rows( $consulta ) >= 1 ) {
-        $sql = "SELECT SUM(pagada), SUM(vendida) FROM ventas WHERE idproducto = $id;";
+        $sql = "SELECT SUM(pagada), SUM(vendida) FROM ventas WHERE idproducto = $idproducto AND iddistribuidor = $iddistribuidor;";
         $datos = mysqli_query( $conexion, $sql );
 
         if ( $datos && mysqli_num_rows( $datos ) >= 1 ) {
