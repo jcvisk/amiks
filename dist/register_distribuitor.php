@@ -204,7 +204,7 @@ if (!isset($_SESSION['usuario_admin'])) {
                                                                 </div>
                                                                 <div class="modal-body">
                                                                     <div class="alert alert-danger" role="alert">
-                                                                        Mensaje de eliminacion
+                                                                        Una vez eliminado el distribuidor ya no podrá recuperarse.
                                                                     </div>
                                                                 </div>
                                                                 <div class="modal-footer">
