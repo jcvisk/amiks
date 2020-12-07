@@ -67,7 +67,7 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        Sistema de horchatas 3.1.0
+                        Sistema de horchatas v1.0
                     </div>
                 </nav>
             </div>
