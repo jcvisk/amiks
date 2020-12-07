@@ -10,7 +10,7 @@ function borrarErrores() {
 }
 
 //mostrar la los registros com un where
-
+/*
 function obtenerRegistro( $conexion, $tabla, $id, $idforeaneo ) {
     $sql = "SELECT * FROM $tabla WHERE $id = $idforeaneo;";
     $distribuidores = mysqli_query( $conexion, $sql );
@@ -22,8 +22,9 @@ function obtenerRegistro( $conexion, $tabla, $id, $idforeaneo ) {
 
     return $resultado;
 }
+*/
 //mostrar la los registros pertenecientes a un distribuidor
-
+/*
 function listarClientesVentas( $conexion, $iddistribuidor ) {
     $sql = "SELECT ventas.*, clientes.nombreempresa, productos.descripcion  
     FROM ventas, productos, clientes 
@@ -39,7 +40,7 @@ function listarClientesVentas( $conexion, $iddistribuidor ) {
 
     return $resultado;
 }
-
+*/
 function listarProductosByDescripcion($conexion, $descripcion){
 
     $sql = "SELECT * FROM productos WHERE descripcion='$descripcion';";
