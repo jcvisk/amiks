@@ -72,9 +72,13 @@ if (!isset($_SESSION['usuario_admin'])) {
                                 <div class="sb-nav-link-icon"><i class="fas fa-wine-bottle"></i></div>
                                 Crear Productos
                             </a>
-                            <a class="nav-link" href="sales.html">
+                            <a class="nav-link" href="sales.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-dollar-sign"></i></div>
                                 Ventas
+                            </a>
+                            <a class="nav-link" href="inside_case.php">
+                                <div class="sb-nav-link-icon"><i class="fa fa-file" aria-hidden="true"></i></div>
+                                Incidencias
                             </a>
                         </div>
                 </div>
@@ -183,14 +187,13 @@ if (!isset($_SESSION['usuario_admin'])) {
                                                         <td><?= $distribuidor['correo']; ?></td>
                                                         <td><?= $distribuidor['licencia']; ?></td>
                                                         <td>
-                                                            <a href="#" data-toggle="modal" data-target="#modalDelete"
-                                                                role="button">
+                                                            <a href="#" data-toggle="modal" data-target="#modalDelete<?= $distribuidor['id']; ?>" role="button">
                                                                 <i class="fas fa-trash-alt" style="color: red;"></i>
                                                             </a>
                                                         </td>
                                                     </tr>
                                                     <!-- Modal - Delete -->
-                                                    <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog"
+                                                    <div class="modal fade" id="modalDelete<?= $distribuidor['id']; ?>" tabindex="-1" role="dialog"
                                                         aria-labelledby="modalDeleteLabel" aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
                                                             <div class="modal-content">
@@ -205,13 +208,14 @@ if (!isset($_SESSION['usuario_admin'])) {
                                                                 <div class="modal-body">
                                                                     <div class="alert alert-danger" role="alert">
                                                                         Una vez eliminado el distribuidor ya no podrá recuperarse.
+                                                                        <?= (INT)$distribuidor['id']; ?>
                                                                     </div>
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary"
                                                                         data-dismiss="modal">Cancelar</button>
 
-                                                                    <a href="../src/core/delete_distribuitor.php?id=<?= $distribuidor['id']; ?>"
+                                                                    <a href="../src/core/delete_distribuitor.php?id=<?= (INT)$distribuidor['id']; ?>"
                                                                         type="button" role="button"
                                                                         class="btn btn-danger">Eliminar</a>
 
