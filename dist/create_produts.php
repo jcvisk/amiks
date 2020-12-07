@@ -72,9 +72,13 @@ if (!isset($_SESSION['usuario_admin'])) {
                                 <div class="sb-nav-link-icon"><i class="fas fa-wine-bottle"></i></div>
                                 Crear Productos
                             </a>
-                            <a class="nav-link" href="sales.html">
+                            <a class="nav-link" href="sales.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-dollar-sign"></i></div>
                                 Ventas
+                            </a>
+                            <a class="nav-link" href="inside_case.php">
+                                <div class="sb-nav-link-icon"><i class="fa fa-file" aria-hidden="true"></i></div>
+                                Incidencias
                             </a>
                         </div>
                 </div>
