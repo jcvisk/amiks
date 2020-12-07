@@ -231,7 +231,6 @@ if (!isset($_SESSION['usuario_admin'])) {
                                                                 <div class="alert alert-danger" role="alert">
                                                                     Una vez eliminado el distribuidor ya no podrá
                                                                     recuperarse.
-                                                                    <?= (INT)$distribuidor['id']; ?>
                                                                 </div>
                                                             </div>
                                                             <div class="modal-footer">

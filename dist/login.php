@@ -51,7 +51,7 @@ require_once '../src/core/helpers.php';
                                     </form>
                                 </div>
                                 <div class="card-footer text-center">
-                                     <div class="small"><a href="../src/core/create_admin.php">Crear Admin</a></div> 
+                                     <div class="small"><a href="../src/core/admin.php">Crear Admin</a></div> 
                                 </div>
                             </div>
                         </div>

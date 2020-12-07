@@ -1,7 +1,7 @@
 <?php
 
 require_once '../src/core/conexion.php';
-require_once '../src/core/helpers/helpers_incidence.php';
+require_once '../src/core/helpers/helpers_admin.php';
 
 if (!isset($_SESSION['usuario_admin'])) {
     header('Location: login.php');
@@ -97,47 +97,127 @@ if (!isset($_SESSION['usuario_admin'])) {
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid">
-                    <h1 class="mt-4">Incidencias</h1>
+                    <h1 class="mt-4">Crear Administrador</h1>
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Incidencias</li>
+                        <li class="breadcrumb-item active">Crear Administrador</li>
                     </ol>
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-table mr-1"></i>
-                            Incidencias
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Distribuidor</th>
-                                            <th>Titulo</th>
-                                            <th>Incidencia</th>
-                                            <th>Fecha</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                                <?php
-                                                $incidents = getAllIncidents( $conexion );
-
-                                                if (!empty($incidents)) :
-                                                while ( $incident = mysqli_fetch_assoc( $incidents ) ) : ?>
-                                                <tr>
-                                                    <td><?= $incident['nombre']; ?></td>
-                                                    <td><?= $incident['titulo']; ?></td>
-                                                    <td><?= $incident['mensaje']; ?></td>
-                                                    <td><?= $incident['fecha']; ?></td>
-                                                    </td>
-                                                </tr>
-                                                <?php
-                                                endwhile;
-                                                endif;
-                                                ?>
-                                    </tbody>
-                                </table>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <form method="POST" action="../src/core/create_admin.php">
+                                    <div class="form-row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="nombre">Nombre</label>
+                                                <input class="form-control" name="nombre" id="nombre"
+                                                    type="text" required />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="apellido">Apellido</label>
+                                                <input class="form-control" name="apellido" id="apellido" type="text"
+                                                    required />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="correo">Correo</label>
+                                                <input class="form-control" name="correo" id="correo" type="text"
+                                                    required />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="password">Contraseña</label>
+                                                <input class="form-control" name="password" id="password" type="text"
+                                                    required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mt-4 mb-5 text-right">
+                                        <button class="btn btn-primary" type="submit">crear cliente</button>
+                                    </div>
+                                </form>
                             </div>
+                            <div class="col-12">
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    <i class="fas fa-table mr-1"></i>
+                                    Datos de Clientes
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Id</th>
+                                                    <th>Nombre</th>
+                                                    <th>Apellido</th>
+                                                    <th>Correo</th>
+                                                    <th>Panel</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                $clientes = getAllRecords( $conexion );
+                                                if (!empty($clientes)) :
+                                                while ( $cliente = mysqli_fetch_assoc( $clientes ) ) : 
+                                                ?>
+                                                    <tr>
+                                                        <td><?= $cliente['id']; ?></td>
+                                                        <td><?= $cliente['nombre']; ?></td>
+                                                        <td><?= $cliente['apellido']; ?></td>
+                                                        <td><?= $cliente['correo']; ?></td>
+                                                        <td>
+                                                            <a href="#" data-toggle="modal" data-target="#modalDelete<?= $cliente['id']; ?>" role="button">
+                                                                <i class="fas fa-trash-alt" style="color: red;"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <!-- Modal - Delete -->
+                                                    <div class="modal fade" id="modalDelete<?= $cliente['id']; ?>"
+                                                        tabindex="-1" role="dialog" aria-labelledby="modalDeleteLabel"
+                                                        aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="modalDeleteLabel">
+                                                                        ¿Seguro que deseas eliminar este cliente?</h5>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="alert alert-danger" role="alert">
+                                                                        Una vez eliminado el administrador ya no podrá
+                                                                        recuperarse.
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-dismiss="modal">Cancelar</button>
+
+                                                                    <a href="../src/core/delete_client.php?id=<?= $cliente['id']; ?>"
+                                                                        type="button" role="button"
+                                                                        class="btn btn-danger">Eliminar</a>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <?php
+                                                    endwhile;
+                                                    endif;
+                                                    ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>

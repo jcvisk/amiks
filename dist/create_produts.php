@@ -118,7 +118,7 @@ if (!isset($_SESSION['usuario_admin'])) {
                                     <div class="col-md">
                                         <div class="form-group">
                                             <label class="small mb-1" for="precioBase">Precio Base</label>
-                                            <input class="form-control" name="precioBase" id="precioBase" type="number" step="0.01" min="0"/>
+                                            <input class="form-control" name="precioBase" id="precioBase" type="number" step="0.01" min="0" required/>
                                         </div>
                                     </div>
                                     <div class="col-md">
@@ -148,6 +148,7 @@ if (!isset($_SESSION['usuario_admin'])) {
                                                     <th>Presentacion</th>
                                                     <th>Precio Base</th>
                                                     <th>Precio Venta</th>
+                                                    <th>Panel</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -161,7 +162,104 @@ if (!isset($_SESSION['usuario_admin'])) {
                                                         <td><?= $productos['descripcion']; ?></td>
                                                         <td><?= $productos['precioBase']; ?></td>
                                                         <td><?= $productos['precioVenta']; ?></td>
+                                                        <td>
+                                                        <a href="#" data-toggle="modal"
+                                                            data-target="#modalDelete<?= $productos['id']; ?>"
+                                                            role="button">
+                                                            <i class="fas fa-trash-alt" style="color: red;"></i>
+                                                        </a>
+                                                        <a href="#" data-toggle="modal"
+                                                            data-target="#modalEdit<?= $productos['id']; ?>"
+                                                            role="button">
+                                                            <i class="fas fa-edit"></i>
+                                                        </a>
+                                                        </td>
                                                     </tr>
+                                                    <!-- Modal - Delete -->
+                                                <div class="modal fade" id="modalDelete<?= $productos['id']; ?>"
+                                                    tabindex="-1" role="dialog" aria-labelledby="modalDeleteLabel"
+                                                    aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="modalDeleteLabel">
+                                                                    ¿Seguro que deseas eliminar este producto?</h5>
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="alert alert-danger" role="alert">
+                                                                    Una vez eliminado el producto ya no podrá
+                                                                    recuperarse.
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-dismiss="modal">Cancelar</button>
+
+                                                                <a href="../src/core/delete_product.php?id=<?= (INT)$productos['id']; ?>"
+                                                                    type="button" role="button"
+                                                                    class="btn btn-danger">Eliminar</a>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Modal - Edit -->
+                                                <div class="modal fade" id="modalEdit<?= $productos['id']; ?>"
+                                                    tabindex="-1" role="dialog" aria-labelledby="modalEditLabel"
+                                                    aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="modalEditLabel">Editar
+                                                                    Producto</h5>
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form method="POST"
+                                                                    action="../src/core/edit_product.php">
+                                                                    <input class="sr-only" name="id" type="text"
+                                                                        value="<?= $productos['id']; ?>" />
+                                                                        <div class="form-row">
+                                                                            <div class="col-md">
+                                                                                <div class="form-group">
+                                                                                    <label class="small mb-1" for="presentacion">Presentación</label>
+                                                                                    <input class="form-control" name="presentacion" id="presentacion" type="text"/>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md">
+                                                                                <div class="form-group">
+                                                                                    <label class="small mb-1" for="precioBase">Precio Base</label>
+                                                                                    <input class="form-control" name="precioBase" id="precioBase" type="number" step="0.01" min="0"/>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md">
+                                                                                <div class="form-group">
+                                                                                    <label class="small mb-1" for="precioVenta">Precio Venta</label>
+                                                                                    <input class="form-control" name="precioVenta" id="precioVenta" type="number" step="0.01" min="0"/>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    <div class="form-group mt-4 mb-5 text-right">
+                                                                        <button type="button" class="btn btn-secondary"
+                                                                            data-dismiss="modal">Cancelar</button>
+                                                                        <button class="btn btn-primary"
+                                                                            type="submit">Guardar</button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <?php
                                                 endwhile;
                                                 endif;

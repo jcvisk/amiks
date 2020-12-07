@@ -1,24 +1,28 @@
 <?php
-require_once 'conexion.php';
+if ( isset( $_POST ) ) {
+    require_once 'conexion.php';
 
-$nombre = 'Juan';
-$apellido = 'Vazquez';
-$correo = 'admin@admin.com';
-$password = 'demo';
+    $nombre = isset( $_POST['nombre'] ) ? mysqli_real_escape_string( $conexion, $_POST['nombre'] ) : '' ;
+    $apellido = isset( $_POST['apellido'] ) ? mysqli_real_escape_string( $conexion, $_POST['apellido'] ) : '' ;
+    $correo = isset( $_POST['correo'] ) ? trim(mysqli_real_escape_string( $conexion, $_POST['correo'] )) : '' ;
+    $password = isset( $_POST['password'] ) ? mysqli_real_escape_string( $conexion, $_POST['password'] ) : '' ;
 
-echo 'encliptando la pass';
-$encrypted_password = password_hash( $password, PASSWORD_BCRYPT, ['cost'=>4] );
-echo 'saliendo de encliptando la pass';
-echo 'entrando a sql';
-//agregando ususario a la base de datos
-$sql = "INSERT INTO administradores VALUES(NULL, '$nombre', '$apellido', '$correo', '$encrypted_password', 1);";
-echo 'saliendo de sql';
-echo 'entrando a mysqli_query';
-$save_in_db = mysqli_query( $conexion, $sql );
-echo 'saliendo de mysqli_query';
+    $encrypted_password = password_hash( $password, PASSWORD_BCRYPT, ['cost'=>4] );
 
-var_dump($save_in_db);
 
-header('Location: ../../dist/login.php');
+    $sql = "INSERT INTO administradores VALUES(NULL, '$nombre', '$apellido', '$correo', '$encrypted_password', 1);";
+    $save = mysqli_query( $conexion, $sql );
+    if ( $save ) {
+        header('Location: ../../dist/register_admin.php');
+    } else {
+        echo 'Error al guardar admin'.'<br>';
+        $e = mysqli_error( $conexion );
+        var_dump( $e );
+        die();
+
+    }
+}
+
+
 
 ?>
