@@ -32,7 +32,7 @@ if (!isset($_SESSION['usuario_admin'])) {
                 class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-           
+
         </form>
         <!-- Navbar-->
         <ul class="navbar-nav ml-auto ml-md-0">
@@ -52,35 +52,35 @@ if (!isset($_SESSION['usuario_admin'])) {
         <div id="layoutSidenav_nav">
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
-                <div class="nav">
-                            <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="index.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Dashboard
-                            </a>
-                            <div class="sb-sidenav-menu-heading">Interface</div>
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">Core</div>
+                        <a class="nav-link" href="index.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Dashboard
+                        </a>
+                        <div class="sb-sidenav-menu-heading">Interface</div>
 
-                            <a class="nav-link" href="register_distribuitor.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
-                                Crear Distribuidor
-                            </a>
-                            <a class="nav-link" href="register_client.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-building"></i></div>
-                                Crear Cliente
-                            </a>
-                            <a class="nav-link" href="create_produts.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-wine-bottle"></i></div>
-                                Crear Productos
-                            </a>
-                            <a class="nav-link" href="sales.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-dollar-sign"></i></div>
-                                Ventas
-                            </a>
-                            <a class="nav-link" href="inside_case.php">
-                                <div class="sb-nav-link-icon"><i class="fa fa-file" aria-hidden="true"></i></div>
-                                Incidencias
-                            </a>
-                        </div>
+                        <a class="nav-link" href="register_distribuitor.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                            Crear Distribuidor
+                        </a>
+                        <a class="nav-link" href="register_client.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-building"></i></div>
+                            Crear Cliente
+                        </a>
+                        <a class="nav-link" href="create_produts.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-wine-bottle"></i></div>
+                            Crear Productos
+                        </a>
+                        <a class="nav-link" href="sales.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-dollar-sign"></i></div>
+                            Ventas
+                        </a>
+                        <a class="nav-link" href="inside_case.php">
+                            <div class="sb-nav-link-icon"><i class="fa fa-file" aria-hidden="true"></i></div>
+                            Incidencias
+                        </a>
+                    </div>
                 </div>
                 <div class="sb-sidenav-footer">
                     <div class="small">Logged in as:</div>
@@ -104,25 +104,28 @@ if (!isset($_SESSION['usuario_admin'])) {
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="small mb-1" for="nombre">Nombre</label>
-                                            <input class="form-control" name="nombre" id="nombre" type="text" required/>
+                                            <input class="form-control" name="nombre" id="nombre" type="text"
+                                                required />
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="small mb-1" for="apellido">Apellido</label>
-                                            <input class="form-control" name="apellido" id="apellido" type="text" required/>
+                                            <input class="form-control" name="apellido" id="apellido" type="text"
+                                                required />
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="small mb-1" for="edad">Edad</label>
-                                            <input class="form-control" name="edad" id="edad" type="text" required/>
+                                            <input class="form-control" name="edad" id="edad" type="text" required />
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="small mb-1" for="celular">Celular</label>
-                                            <input class="form-control" name="celular" id="celular" type="text" required/>
+                                            <input class="form-control" name="celular" id="celular" type="text"
+                                                required />
                                         </div>
                                     </div>
                                 </div>
@@ -130,19 +133,22 @@ if (!isset($_SESSION['usuario_admin'])) {
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="small mb-1" for="correo">Correo</label>
-                                            <input class="form-control" name="correo" id="correo" type="email" required/>
+                                            <input class="form-control" name="correo" id="correo" type="email"
+                                                required />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="small mb-1" for="password">Contraseña</label>
-                                            <input class="form-control" name="password" id="password" type="password" pattern=".{6,}" required/>
+                                            <input class="form-control" name="password" id="password" type="password"
+                                                pattern=".{6,}" required />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="small mb-1" for="licencia">Licencia</label>
-                                            <input class="form-control" name="licencia" id="licencia" type="text" required/>
+                                            <input class="form-control" name="licencia" id="licencia" type="text"
+                                                required />
                                         </div>
                                     </div>
                                 </div>
@@ -160,7 +166,7 @@ if (!isset($_SESSION['usuario_admin'])) {
                                 <div class="card-body">
                                     <div class="table-responsive">
                                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                            <theacd>
+                                            <thead>
                                                 <tr>
                                                     <th>Id</th>
                                                     <th>Nombre</th>
@@ -171,124 +177,151 @@ if (!isset($_SESSION['usuario_admin'])) {
                                                     <th>Licencia</th>
                                                     <th>Panel</th>
                                                 </tr>
-                                                </thead>
-                                                <tbody>
+                                            </thead>
+                                            <tbody>
                                                 <?php
                                                 $tabla = 'distribuidores';
                                                 $distribuidores = getAllRecords( $conexion, $tabla );
                                                 if (!empty($distribuidores)) :
                                                 while ( $distribuidor = mysqli_fetch_assoc( $distribuidores ) ) : ?>
-                                                    <tr>
-                                                        <td><?= $distribuidor['id']; ?></td>
-                                                        <td><?= $distribuidor['nombre']; ?></td>
-                                                        <td><?= $distribuidor['apellido']; ?></td>
-                                                        <td><?= $distribuidor['edad']; ?></td>
-                                                        <td><?= $distribuidor['celular']; ?></td>
-                                                        <td><?= $distribuidor['correo']; ?></td>
-                                                        <td><?= $distribuidor['licencia']; ?></td>
-                                                        <td>
-                                                            <a href="#" data-toggle="modal" data-target="#modalDelete<?= $distribuidor['id']; ?>" role="button">
-                                                                <i class="fas fa-trash-alt" style="color: red;"></i>
-                                                            </a>
-                                                            <a href="#" data-toggle="modal" data-target="#modalEdit<?= $distribuidor['id']; ?>" role="button">
-                                                                <i class="fas fa-edit"></i>
-                                                            </a>
-                                                        </td>
-                                                    </tr>
-                                                    <!-- Modal - Delete -->
-                                                    <div class="modal fade" id="modalDelete<?= $distribuidor['id']; ?>" tabindex="-1" role="dialog"
-                                                        aria-labelledby="modalDeleteLabel" aria-hidden="true">
-                                                        <div class="modal-dialog" role="document">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title" id="modalDeleteLabel">
-                                                                        ¿Seguro que deseas eliminar este distribuidor?</h5>
-                                                                    <button type="button" class="close"
-                                                                        data-dismiss="modal" aria-label="Close">
-                                                                        <span aria-hidden="true">&times;</span>
-                                                                    </button>
+                                                <tr>
+                                                    <td><?= $distribuidor['id']; ?></td>
+                                                    <td><?= $distribuidor['nombre']; ?></td>
+                                                    <td><?= $distribuidor['apellido']; ?></td>
+                                                    <td><?= $distribuidor['edad']; ?></td>
+                                                    <td><?= $distribuidor['celular']; ?></td>
+                                                    <td><?= $distribuidor['correo']; ?></td>
+                                                    <td><?= $distribuidor['licencia']; ?></td>
+                                                    <td>
+                                                        <a href="#" data-toggle="modal"
+                                                            data-target="#modalDelete<?= $distribuidor['id']; ?>"
+                                                            role="button">
+                                                            <i class="fas fa-trash-alt" style="color: red;"></i>
+                                                        </a>
+                                                        <a href="#" data-toggle="modal"
+                                                            data-target="#modalEdit<?= $distribuidor['id']; ?>"
+                                                            role="button">
+                                                            <i class="fas fa-edit"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <!-- Modal - Delete -->
+                                                <div class="modal fade" id="modalDelete<?= $distribuidor['id']; ?>"
+                                                    tabindex="-1" role="dialog" aria-labelledby="modalDeleteLabel"
+                                                    aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="modalDeleteLabel">
+                                                                    ¿Seguro que deseas eliminar este distribuidor?</h5>
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="alert alert-danger" role="alert">
+                                                                    Una vez eliminado el distribuidor ya no podrá
+                                                                    recuperarse.
+                                                                    <?= (INT)$distribuidor['id']; ?>
                                                                 </div>
-                                                                <div class="modal-body">
-                                                                    <div class="alert alert-danger" role="alert">
-                                                                        Una vez eliminado el distribuidor ya no podrá recuperarse.
-                                                                        <?= (INT)$distribuidor['id']; ?>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-dismiss="modal">Cancelar</button>
+
+                                                                <a href="../src/core/delete_distribuitor.php?id=<?= (INT)$distribuidor['id']; ?>"
+                                                                    type="button" role="button"
+                                                                    class="btn btn-danger">Eliminar</a>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Modal - Edit -->
+                                                <div class="modal fade" id="modalEdit<?= $distribuidor['id']; ?>"
+                                                    tabindex="-1" role="dialog" aria-labelledby="modalEditLabel"
+                                                    aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="modalEditLabel">Editar
+                                                                    Distribuidor</h5>
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form method="POST"
+                                                                    action="../src/core/edit_distribuitor.php">
+                                                                    <input class="sr-only" name="id" type="text"
+                                                                        value="<?= $distribuidor['id']; ?>" />
+                                                                    <div class="form-row">
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label class="small mb-1"
+                                                                                    for="nombre">Nombre</label>
+                                                                                <input class="form-control"
+                                                                                    name="nombre" id="nombre"
+                                                                                    type="text" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label class="small mb-1"
+                                                                                    for="apellido">Apellido</label>
+                                                                                <input class="form-control"
+                                                                                    name="apellido" id="apellido"
+                                                                                    type="text" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label class="small mb-1"
+                                                                                    for="edad">Edad</label>
+                                                                                <input class="form-control" name="edad"
+                                                                                    id="edad" type="text" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label class="small mb-1"
+                                                                                    for="celular">Celular</label>
+                                                                                <input class="form-control"
+                                                                                    name="celular" id="celular"
+                                                                                    type="text" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label class="small mb-1"
+                                                                                    for="licencia">Licencia</label>
+                                                                                <input class="form-control"
+                                                                                    name="licencia" id="licencia"
+                                                                                    type="text" />
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary"
-                                                                        data-dismiss="modal">Cancelar</button>
-
-                                                                    <a href="../src/core/delete_distribuitor.php?id=<?= (INT)$distribuidor['id']; ?>"
-                                                                        type="button" role="button"
-                                                                        class="btn btn-danger">Eliminar</a>
-
-                                                                </div>
+                                                                    <div class="form-group mt-4 mb-5 text-right">
+                                                                        <button type="button" class="btn btn-secondary"
+                                                                            data-dismiss="modal">Cancelar</button>
+                                                                        <button class="btn btn-primary"
+                                                                            type="submit">Guardar</button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                            <div class="modal-footer">
                                                             </div>
                                                         </div>
                                                     </div>
-
-                                                    <!-- Modal - Edit -->
-                                                    <div class="modal fade" id="modalEdit<?= $distribuidor['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="modalEditLabel" aria-hidden="true">
-                                                        <div class="modal-dialog" role="document">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title" id="modalEditLabel">Editar Distribuidor</h5>
-                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                        <span aria-hidden="true">&times;</span>
-                                                                    </button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <form method="POST" action="../src/core/edit_distribuitor.php">
-                                                                    <input class="sr-only" name="id" type="text" value="<?= $distribuidor['id']; ?>"/>
-                                                                        <div class="form-row">
-                                                                            <div class="col-md-4">
-                                                                                <div class="form-group">
-                                                                                    <label class="small mb-1" for="nombre">Nombre</label>
-                                                                                    <input class="form-control" name="nombre" id="nombre" type="text"/>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-md-4">
-                                                                                <div class="form-group">
-                                                                                    <label class="small mb-1" for="apellido">Apellido</label>
-                                                                                    <input class="form-control" name="apellido" id="apellido" type="text"/>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-md-4">
-                                                                                <div class="form-group">
-                                                                                    <label class="small mb-1" for="edad">Edad</label>
-                                                                                    <input class="form-control" name="edad" id="edad" type="text"/>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-md-4">
-                                                                                <div class="form-group">
-                                                                                    <label class="small mb-1" for="celular">Celular</label>
-                                                                                    <input class="form-control" name="celular" id="celular" type="text"/>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-md-4">
-                                                                                <div class="form-group">
-                                                                                    <label class="small mb-1" for="licencia">Licencia</label>
-                                                                                    <input class="form-control" name="licencia" id="licencia" type="text"/>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="form-group mt-4 mb-5 text-right">
-                                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                                            <button class="btn btn-primary" type="submit">Guardar</button>
-                                                                        </div>
-                                                                    </form>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                </div>
                                                 <?php
                                                 endwhile;
                                                 endif;
                                                 ?>
-                                                </tbody>
-                                            </theacd>
+                                            </tbody>
                                         </table>
                                     </div>
                                 </div>

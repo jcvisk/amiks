@@ -134,15 +134,15 @@ if (!isset($_SESSION['usuario_admin'])) {
                                 <div class="card-body">
                                     <div class="table-responsive">
                                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                            <theacd>
+                                            <thead>
                                                 <tr>
                                                     <th>Id</th>
                                                     <th>Presentacion</th>
                                                     <th>Precio Base</th>
                                                     <th>Precio Venta</th>
                                                 </tr>
-                                                </thead>
-                                                <tbody>
+                                            </thead>
+                                            <tbody>
                                                 <?php
                                                 $tabla = 'productos';
                                                 $datos = getAllRecords( $conexion, $tabla );
@@ -158,8 +158,7 @@ if (!isset($_SESSION['usuario_admin'])) {
                                                 endwhile;
                                                 endif;
                                                 ?>
-                                                </tbody>
-                                            </theacd>
+                                            </tbody>
                                         </table>
                                     </div>
                                 </div>

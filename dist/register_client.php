@@ -174,7 +174,7 @@ if (!isset($_SESSION['usuario_admin'])) {
                                 <div class="card-body">
                                     <div class="table-responsive">
                                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                            <theacd>
+                                            <thead>
                                                 <tr>
                                                     <th>Id</th>
                                                     <th>Empresa</th>
@@ -184,8 +184,8 @@ if (!isset($_SESSION['usuario_admin'])) {
                                                     <th>Celular</th>
                                                     <th>Panel</th>
                                                 </tr>
-                                                </thead>
-                                                <tbody>
+                                            </thead>
+                                            <tbody>
                                                     <?php
                                                 $tabla = 'clientes';
                                                 $clientes = getAllRecords( $conexion, $tabla );
@@ -323,8 +323,7 @@ if (!isset($_SESSION['usuario_admin'])) {
                                                     endwhile;
                                                     endif;
                                                     ?>
-                                                </tbody>
-                                            </theacd>
+                                            </tbody>
                                         </table>
                                     </div>
                                 </div>
