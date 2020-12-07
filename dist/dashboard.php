@@ -90,7 +90,7 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                                 <div class="card bg-warning text-white mb-4">
                                     <div class="card-body">Reportar Insidencias</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="register_client.php"></a>
+                                        <a class="small text-white stretched-link" href="inside_case_report.php"></a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
