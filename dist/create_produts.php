@@ -163,11 +163,12 @@ if (!isset($_SESSION['usuario_admin'])) {
                                                         <td><?= $productos['precioBase']; ?></td>
                                                         <td><?= $productos['precioVenta']; ?></td>
                                                         <td>
+                                                            <!-- 
                                                         <a href="#" data-toggle="modal"
                                                             data-target="#modalDelete<?= $productos['id']; ?>"
                                                             role="button">
                                                             <i class="fas fa-trash-alt" style="color: red;"></i>
-                                                        </a>
+                                                        </a> -->
                                                         <a href="#" data-toggle="modal"
                                                             data-target="#modalEdit<?= $productos['id']; ?>"
                                                             role="button">
