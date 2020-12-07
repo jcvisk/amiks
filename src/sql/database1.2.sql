@@ -26,13 +26,24 @@ CREATE TABLE `distribuidores` (
   CONSTRAINT `fk_distribuidores_administradores` FOREIGN KEY(`idadministrador`) REFERENCES `administradores` (`id`)
 )ENGINE = InnoDB;
 
+CREATE TABLE `incidencias` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `titulo` VARCHAR(100) NOT NULL,
+  `fecha` DATE NOT NULL,
+  `mensaje` VARCHAR(255) NOT NULL,
+  `iddistribuidor` INT NOT NULL,
+
+  CONSTRAINT `pk_incidencias` PRIMARY KEY (`id`),
+  CONSTRAINT `fk_incidencias_distribuidores` FOREIGN KEY(`iddistribuidor`) REFERENCES `distribuidores` (`id`)
+)ENGINE = InnoDB;
+
 CREATE TABLE `clientes` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `nombreempresa` VARCHAR(100) NOT NULL,
-  `propietario` VARCHAR(100) NOT NULL,
-  `ubicacion` VARCHAR(100) NOT NULL,
-  `telefono` VARCHAR(100) NOT NULL,
-  `celular` VARCHAR(100) NOT NULL,
+  `nombreempresa` VARCHAR(100),
+  `propietario` VARCHAR(100),
+  `ubicacion` VARCHAR(100),
+  `telefono` VARCHAR(100),
+  `celular` VARCHAR(100),
   `status` INT NOT NULL,
   `iddistribuidor` INT NOT NULL,
 
