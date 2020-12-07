@@ -66,7 +66,7 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                         </a>
                         <a class="nav-link" href="inside_case_report.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
-                            Reportar Insidencias
+                            Reportar Incidencias
                         </a>
                     </div>
                 </div>

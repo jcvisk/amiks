@@ -59,7 +59,7 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                             </a>
                             <a class="nav-link" href="inside_case_report.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
-                               Reportar Insidencias
+                               Reportar Incidencias
                             </a>
                         </div>
                     </div>
@@ -88,7 +88,7 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body">Reportar Insidencias</div>
+                                    <div class="card-body">Reportar Incidencias</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="inside_case_report.php"></a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
