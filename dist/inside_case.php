@@ -17,7 +17,7 @@ if (!isset($_SESSION['usuario_admin'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Dashboard - SB Admin</title>
+    <title>Dashboard | Admin</title>
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/dataTables.bootstrap4.css" rel="stylesheet" />
     <script src="js/all.js"></script>
@@ -25,7 +25,7 @@ if (!isset($_SESSION['usuario_admin'])) {
 
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+        <a class="navbar-brand" href="index.html">Sistema de horchatas</a>
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i
                 class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
@@ -35,8 +35,10 @@ if (!isset($_SESSION['usuario_admin'])) {
         <!-- Navbar-->
         <ul class="navbar-nav ml-auto ml-md-0">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <?= isset($_SESSION['usuario_admin']) ? $_SESSION['usuario_admin']['nombre'].' '.$_SESSION['usuario_admin']['apellido'] : '' ?>
+                    <i class="fas fa-user fa-fw"></i>
+                </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                     <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="../src/core/close_sesion.php">Logout</a>
@@ -89,7 +91,7 @@ if (!isset($_SESSION['usuario_admin'])) {
                 </div>
                 <div class="sb-sidenav-footer">
                     <div class="small">Logged in as:</div>
-                    Start Bootstrap
+                    Sistema de horchatas
                 </div>
             </nav>
         </div>
@@ -101,6 +103,7 @@ if (!isset($_SESSION['usuario_admin'])) {
                         <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
                         <li class="breadcrumb-item active">Incidencias</li>
                     </ol>
+                    <div class="container">
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table mr-1"></i>
@@ -138,6 +141,7 @@ if (!isset($_SESSION['usuario_admin'])) {
                                 </table>
                             </div>
                         </div>
+                    </div>
                     </div>
                 </div>
             </main>
