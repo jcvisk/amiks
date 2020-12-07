@@ -72,6 +72,8 @@ if (!isset($_SESSION['usuario_admin'])) {
                             <div class="sb-nav-link-icon"><i class="fas fa-wine-bottle"></i></div>
                             Crear Productos
                         </a>
+                        <div class="sb-sidenav-menu-heading">Reportes</div>
+
                         <a class="nav-link" href="sales.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-dollar-sign"></i></div>
                             Ventas
@@ -79,6 +81,12 @@ if (!isset($_SESSION['usuario_admin'])) {
                         <a class="nav-link" href="inside_case.php">
                             <div class="sb-nav-link-icon"><i class="fa fa-file" aria-hidden="true"></i></div>
                             Incidencias
+                        </a>
+                        <div class="sb-sidenav-menu-heading">Usuarios</div>
+
+                        <a class="nav-link" href="register_admin.php">
+                            <div class="sb-nav-link-icon"><i class="fa fa-user-plus" aria-hidden="true"></i></div>
+                            Crear Administrador
                         </a>
                     </div>
                 </div>
@@ -118,7 +126,7 @@ if (!isset($_SESSION['usuario_admin'])) {
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="small mb-1" for="edad">Edad</label>
-                                            <input class="form-control" name="edad" id="edad" type="text" required />
+                                            <input class="form-control" name="edad" id="edad" type="number" min="0" required />
                                         </div>
                                     </div>
                                     <div class="col-md-3">
@@ -282,7 +290,7 @@ if (!isset($_SESSION['usuario_admin'])) {
                                                                                 <label class="small mb-1"
                                                                                     for="edad">Edad</label>
                                                                                 <input class="form-control" name="edad"
-                                                                                    id="edad" type="text" />
+                                                                                    id="edad" type="number" min="0" />
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-4">

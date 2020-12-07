@@ -71,7 +71,7 @@ if (!isset($_SESSION['usuario_admin'])) {
                             Crear Productos
                         </a>
                         <div class="sb-sidenav-menu-heading">Reportes</div>
-                        
+
                         <a class="nav-link" href="sales.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-dollar-sign"></i></div>
                             Ventas
@@ -81,10 +81,10 @@ if (!isset($_SESSION['usuario_admin'])) {
                             Incidencias
                         </a>
                         <div class="sb-sidenav-menu-heading">Usuarios</div>
-
+                        
                         <a class="nav-link" href="register_admin.php">
-                            <div class="sb-nav-link-icon"><i class="fa fa-user-plus" aria-hidden="true"></i></div>
-                            Crear Administrador
+                                <div class="sb-nav-link-icon"><i class="fa fa-user-plus" aria-hidden="true"></i></div>
+                                Crear Administrador
                         </a>
                     </div>
                 </div>
