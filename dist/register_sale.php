@@ -1,8 +1,7 @@
 <?php
 
 require_once '../src/core/conexion.php';
-require_once '../src/core/helpers/helpers_sales.php';  
-
+require_once '../src/core/helpers/helpers_sales.php';
 
 if (!isset($_SESSION['usuario_distribuidor'])) {
     header('Location: login.php');
@@ -33,7 +32,7 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                 class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-            
+
         </form>
         <!-- Navbar-->
         <ul class="navbar-nav ml-auto ml-md-0">
@@ -60,15 +59,15 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                             Dashboard
                         </a>
                         <div class="sb-sidenav-menu-heading">Interface</div>
+
                         <a class="nav-link" href="register_sale.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
-                                Ventas, Consignas y Devoluciones
+                            <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                            Ventas, Consignas y Devoluciones
                         </a>
                         <a class="nav-link" href="inside_case_report.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
-                                Reportar Incidencias
+                            <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                            Reportar Incidencias
                         </a>
-
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
@@ -99,20 +98,20 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                                             <select class="custom-select" name="cliente" id="cliente" required>
                                                 <option>Seleccionar</option>
                                                 <?php
-                                                $tabla = 'clientes';
-                                                
-                                                $id = 'iddistribuidor';
-                                                $idForaneo = (INT)$_SESSION['usuario_distribuidor']['id'];
+                                                    $tabla = 'clientes';
+                                                    
+                                                    $id = 'iddistribuidor';
+                                                    $idForaneo = (INT)$_SESSION['usuario_distribuidor']['id'];
 
-                                                $clientes = obtenerRegistro( $conexion, $tabla, $id, $idForaneo );
-                                                if (!empty($clientes)) :
-                                                while ( $cliente = mysqli_fetch_assoc( $clientes ) ) : ?>
+                                                    $clientes = obtenerRegistro( $conexion, $tabla, $id, $idForaneo );
+                                                    if (!empty($clientes)) :
+                                                    while ( $cliente = mysqli_fetch_assoc( $clientes ) ) : ?>
                                                 <option value="<?= $cliente['id']; ?>">
                                                     <?= $cliente['nombreempresa']; ?></option>
                                                 <?php
-                                                endwhile;
-                                                endif;
-                                                ?>
+                                                    endwhile;
+                                                    endif;
+                                                    ?>
                                             </select>
                                         </div>
                                     </div>
@@ -166,7 +165,7 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                                     </div>
                                 </div>
                                 <div class="form-row justify-content-between">
-                                    <div class="col-md-4 justify-content-be">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="small mb-1" for="consigna_anterior">Consigna Anterior</label>
                                             <input class="form-control" name="consigna_anterior" id="consigna_anterior"
@@ -177,7 +176,6 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                                         <button class="btn btn-primary" type="submit">Guardar</button>
                                     </div>
                                 </div>
-
                             </form>
                         </div>
                         <div class="col-7">
@@ -192,32 +190,32 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                                             <thead>
                                                 <tr>
                                                     <?php
-                                                    $productos = getAllRecords( $conexion, 'productos' );
-                                                    if (!empty($productos)) :
-                                                    while ( $producto = mysqli_fetch_row( $productos ) ) : ?>
-                                                    
+                                                $productos = getAllRecords( $conexion, 'productos' );
+                                                if (!empty($productos)) :
+                                                while ( $producto = mysqli_fetch_row( $productos ) ) : ?>
+
                                                     <th><?= $producto[1]; ?></th>
 
                                                     <?php
-                                                    endwhile;
-                                                    endif;
-                                                    ?>
+                                                endwhile;
+                                                endif;
+                                                ?>
                                                 </tr>
                                             </thead>
-                                            <tbody>  
-                                                    <?php
-                                                    $iddistribuidor = (INT)$_SESSION['usuario_distribuidor']['id'];
-                                                    $i=1;
-                                                    $columnas = getAllRecords( $conexion, 'productos' );
-                                                    if (!empty($columnas)) : ?>
-                                                    <tr>
+                                            <tbody>
+                                                <?php
+                                            $iddistribuidor = (INT)$_SESSION['usuario_distribuidor']['id'];
+                                            $i=1;
+                                            $columnas = getAllRecords( $conexion, 'productos' );
+                                            if (!empty($columnas)) : ?>
+                                                <tr>
                                                     <?php while ( $columna = mysqli_fetch_row( $columnas ) ) :?>
-                                                        <th><?php echo getTotales($conexion, $i, $iddistribuidor); ?></th>
+                                                    <td><?php echo getTotales($conexion, $i, $iddistribuidor); ?></td>
                                                     <?php $i++; endwhile; ?>
-                                                    </tr>
-                                                    <?php
-                                                    endif;
-                                                    ?>
+                                                </tr>
+                                                <?php
+                                            endif;
+                                            ?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -232,7 +230,8 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
-                                        <table class="table table-bordered" id="dataTable2" width="100%" cellspacing="0">
+                                        <table class="table table-bordered" id="dataTable2" width="100%"
+                                            cellspacing="0">
                                             <thead>
                                                 <tr>
                                                     <th>Cliente</th>
@@ -275,13 +274,11 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                         </div>
                     </div>
                 </div>
-                <!-- <?php $mostrar = listarClientesVentas( $conexion ); $mostrar2 = mysqli_fetch_assoc($mostrar); var_dump($mostrar2) ?> -->
-                
             </main>
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid">
                     <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; Sistema de horchatas</div>
+                        <div class="text-muted">Copyright &copy; Sistema de horchatas </div>
                         <div>
                             <a href="#">Privacy Policy</a>
                             &middot;
