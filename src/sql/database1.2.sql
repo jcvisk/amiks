@@ -17,7 +17,7 @@ CREATE TABLE `distribuidores` (
   `celular` VARCHAR(100) NOT NULL,
   `edad` VARCHAR(100) NOT NULL,
   `correo` VARCHAR(100) NOT NULL,
-  `password` VARCHAR(100) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
   `licencia` VARCHAR(100) NOT NULL,
   `status` INT NOT NULL,
   `idadministrador` INT NOT NULL,
