@@ -190,6 +190,9 @@ if (!isset($_SESSION['usuario_admin'])) {
                                                             <a href="#" data-toggle="modal" data-target="#modalDelete<?= $distribuidor['id']; ?>" role="button">
                                                                 <i class="fas fa-trash-alt" style="color: red;"></i>
                                                             </a>
+                                                            <a href="#" data-toggle="modal" data-target="#modalEdit<?= $distribuidor['id']; ?>" role="button">
+                                                                <i class="fas fa-edit"></i>
+                                                            </a>
                                                         </td>
                                                     </tr>
                                                     <!-- Modal - Delete -->
@@ -219,6 +222,63 @@ if (!isset($_SESSION['usuario_admin'])) {
                                                                         type="button" role="button"
                                                                         class="btn btn-danger">Eliminar</a>
 
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Modal - Edit -->
+                                                    <div class="modal fade" id="modalEdit<?= $distribuidor['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="modalEditLabel" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="modalEditLabel">Editar Distribuidor</h5>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form method="POST" action="../src/core/edit_distribuitor.php">
+                                                                    <input class="sr-only" name="id" type="text" value="<?= $distribuidor['id']; ?>"/>
+                                                                        <div class="form-row">
+                                                                            <div class="col-md-4">
+                                                                                <div class="form-group">
+                                                                                    <label class="small mb-1" for="nombre">Nombre</label>
+                                                                                    <input class="form-control" name="nombre" id="nombre" type="text"/>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-4">
+                                                                                <div class="form-group">
+                                                                                    <label class="small mb-1" for="apellido">Apellido</label>
+                                                                                    <input class="form-control" name="apellido" id="apellido" type="text"/>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-4">
+                                                                                <div class="form-group">
+                                                                                    <label class="small mb-1" for="edad">Edad</label>
+                                                                                    <input class="form-control" name="edad" id="edad" type="text"/>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-4">
+                                                                                <div class="form-group">
+                                                                                    <label class="small mb-1" for="celular">Celular</label>
+                                                                                    <input class="form-control" name="celular" id="celular" type="text"/>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-4">
+                                                                                <div class="form-group">
+                                                                                    <label class="small mb-1" for="licencia">Licencia</label>
+                                                                                    <input class="form-control" name="licencia" id="licencia" type="text"/>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group mt-4 mb-5 text-right">
+                                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                                            <button class="btn btn-primary" type="submit">Guardar</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                                <div class="modal-footer">
                                                                 </div>
                                                             </div>
                                                         </div>
