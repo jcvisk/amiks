@@ -80,7 +80,8 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                 <div class="container-fluid">
                     <h1 class="mt-4">Reportar Incidencia</h1>
                     <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active">Dashboard</li>
+                        <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
+                        <li class="breadcrumb-item active">Reportar Incidencia</li>
                     </ol>
                 </div>
                 <div class="container">

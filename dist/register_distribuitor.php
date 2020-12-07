@@ -100,7 +100,8 @@ if (!isset($_SESSION['usuario_admin'])) {
                 <div class="container-fluid">
                     <h1 class="mt-4">Crear Distribuidor</h1>
                     <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active">Dashboard</li>
+                        <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
+                        <li class="breadcrumb-item active">Crear Distribuidor</li>
                     </ol>
                 </div>
                 <div class="container">
