@@ -1,8 +1,7 @@
 <?php
 
 require_once '../src/core/conexion.php';
-require_once '../src/core/helpers.php';
-require_once '../src/core/helpers/helpers_sales.php';
+require_once '../src/core/helpers/helpers_incidence.php';
 
 if (!isset($_SESSION['usuario_admin'])) {
     header('Location: login.php');
@@ -92,13 +91,13 @@ if (!isset($_SESSION['usuario_admin'])) {
                 <div class="container-fluid">
                     <h1 class="mt-4">Incidencias</h1>
                     <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Ventas</li>
+                        <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
+                        <li class="breadcrumb-item active">Incidencias</li>
                     </ol>
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table mr-1"></i>
-                            Ventas y Consiganas
+                            Incidencias
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -106,28 +105,22 @@ if (!isset($_SESSION['usuario_admin'])) {
                                     <thead>
                                         <tr>
                                             <th>Distribuidor</th>
-                                            <th>Cliente</th>
-                                            <th>Presentación</th>
-                                            <th>Pagadas</th>
-                                            <th>Vendidas</th>
-                                            <th>Cambio</th>
-                                            <th>Consigna</th>
+                                            <th>Titulo</th>
+                                            <th>Incidencia</th>
+                                            <th>Fecha</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                                 <?php
-                                                $clientesVentas = listarVentasAllData( $conexion );
-                                                //var_dump(mysqli_fetch_assoc( $clientesVentas ));
-                                                if (!empty($clientesVentas)) :
-                                                while ( $cliente = mysqli_fetch_assoc( $clientesVentas ) ) : ?>
+                                                $incidents = getAllIncidents( $conexion );
+
+                                                if (!empty($incidents)) :
+                                                while ( $incident = mysqli_fetch_assoc( $incidents ) ) : ?>
                                                 <tr>
-                                                    <td><?= $cliente['nombre']; ?></td>
-                                                    <td><?= $cliente['nombreempresa']; ?></td>
-                                                    <td><?= $cliente['descripcion']; ?></td>
-                                                    <td><?= $cliente['pagada']; ?></td>
-                                                    <td><?= $cliente['vendida']; ?></td>
-                                                    <td><?= $cliente['cambios']; ?></td>
-                                                    <td><?php $re = ((INT)$cliente['consigna'] + (INT)$cliente['consignaanterior']); echo ($re) ; ?>
+                                                    <td><?= $incident['nombre']; ?></td>
+                                                    <td><?= $incident['titulo']; ?></td>
+                                                    <td><?= $incident['mensaje']; ?></td>
+                                                    <td><?= $incident['fecha']; ?></td>
                                                     </td>
                                                 </tr>
                                                 <?php
