@@ -1,8 +1,7 @@
 <?php
 
 require_once '../src/core/conexion.php';
-require_once '../src/core/helpers.php';
-require_once '../src/core/helpers/helpers_sales.php';
+require_once '../src/core/helpers/helpers_sales.php';  
 
 
 if (!isset($_SESSION['usuario_distribuidor'])) {
