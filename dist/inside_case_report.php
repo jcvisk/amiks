@@ -106,7 +106,7 @@ if (!isset($_SESSION['usuario_distribuidor'])) {
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="mensaje">Example textarea</label>
+                                    <label for="mensaje">Mensaje</label>
                                     <textarea class="form-control" name="mensaje" id="mensaje" rows="10" required></textarea>
                                 </div>
                                 <div class="form-group">
