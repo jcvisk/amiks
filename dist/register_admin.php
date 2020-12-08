@@ -132,13 +132,13 @@ if (!isset($_SESSION['usuario_admin'])) {
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label class="small mb-1" for="password">Contraseña</label>
-                                                <input class="form-control" name="password" id="password" type="text"
+                                                <input class="form-control" name="password" id="password" type="password"
                                                     required />
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group mt-4 mb-5 text-right">
-                                        <button class="btn btn-primary" type="submit">crear cliente</button>
+                                        <button class="btn btn-primary" type="submit">Crear Administrador</button>
                                     </div>
                                 </form>
                             </div>
