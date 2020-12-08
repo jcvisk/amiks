@@ -99,8 +99,9 @@ if (!isset($_SESSION['usuario_admin'])) {
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ol>
+                        <div class="container">
                         <div class="row justify-content-center">
-                            <div class="col-xl-3 col-md-6">
+                            <div class="col-xl-4 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body">Crear Distribuidor</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
@@ -109,7 +110,7 @@ if (!isset($_SESSION['usuario_admin'])) {
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-md-6">
+                            <div class="col-xl-4 col-md-6">
                                 <div class="card bg-warning text-white mb-4">
                                     <div class="card-body">Crear Cliente</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
@@ -118,7 +119,7 @@ if (!isset($_SESSION['usuario_admin'])) {
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-md-6">
+                            <div class="col-xl-4 col-md-6">
                                 <div class="card bg-success text-white mb-4">
                                     <div class="card-body">Crear Productos</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
@@ -127,6 +128,34 @@ if (!isset($_SESSION['usuario_admin'])) {
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-xl-4 col-md-6">
+                                <div class="card bg-info text-white mb-4">
+                                    <div class="card-body">Ventas</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="sales.php"></a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-md-6">
+                                <div class="card bg-danger text-white mb-4">
+                                    <div class="card-body">Incidencias</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="inside_case.php"></a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-md-6">
+                                <div class="card bg-secondary text-white mb-4">
+                                    <div class="card-body">Crear Administrador</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="register_admin.php"></a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </main>
